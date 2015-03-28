@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "3957CE581AC739E0008AEBE2"
+               BlueprintIdentifier = "3957CE911AC74DFC008AEBE2"
                BuildableName = "TripHistory.app"
                BlueprintName = "TripHistory"
                ReferencedContainer = "container:TripHistory.xcodeproj">
@@ -28,7 +28,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "3957CE701AC739E0008AEBE2"
+               BlueprintIdentifier = "3957CEAD1AC74DFC008AEBE2"
                BuildableName = "TripHistoryTests.xctest"
                BlueprintName = "TripHistoryTests"
                ReferencedContainer = "container:TripHistory.xcodeproj">
@@ -46,7 +46,7 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "3957CE701AC739E0008AEBE2"
+               BlueprintIdentifier = "3957CEAD1AC74DFC008AEBE2"
                BuildableName = "TripHistoryTests.xctest"
                BlueprintName = "TripHistoryTests"
                ReferencedContainer = "container:TripHistory.xcodeproj">
@@ -56,7 +56,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "3957CE581AC739E0008AEBE2"
+            BlueprintIdentifier = "3957CE911AC74DFC008AEBE2"
             BuildableName = "TripHistory.app"
             BlueprintName = "TripHistory"
             ReferencedContainer = "container:TripHistory.xcodeproj">
@@ -76,7 +76,7 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "3957CE581AC739E0008AEBE2"
+            BlueprintIdentifier = "3957CE911AC74DFC008AEBE2"
             BuildableName = "TripHistory.app"
             BlueprintName = "TripHistory"
             ReferencedContainer = "container:TripHistory.xcodeproj">
@@ -95,7 +95,7 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "3957CE581AC739E0008AEBE2"
+            BlueprintIdentifier = "3957CE911AC74DFC008AEBE2"
             BuildableName = "TripHistory.app"
             BlueprintName = "TripHistory"
             ReferencedContainer = "container:TripHistory.xcodeproj">

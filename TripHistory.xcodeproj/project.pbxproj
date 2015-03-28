@@ -7,48 +7,52 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3957CE5F1AC739E0008AEBE2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3957CE5E1AC739E0008AEBE2 /* AppDelegate.swift */; };
-		3957CE621AC739E0008AEBE2 /* TripHistory.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3957CE601AC739E0008AEBE2 /* TripHistory.xcdatamodeld */; };
-		3957CE641AC739E0008AEBE2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3957CE631AC739E0008AEBE2 /* ViewController.swift */; };
-		3957CE671AC739E0008AEBE2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3957CE651AC739E0008AEBE2 /* Main.storyboard */; };
-		3957CE691AC739E0008AEBE2 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3957CE681AC739E0008AEBE2 /* Images.xcassets */; };
-		3957CE6C1AC739E0008AEBE2 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3957CE6A1AC739E0008AEBE2 /* LaunchScreen.xib */; };
-		3957CE781AC739E0008AEBE2 /* TripHistoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3957CE771AC739E0008AEBE2 /* TripHistoryTests.swift */; };
+		3957CE981AC74DFC008AEBE2 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3957CE971AC74DFC008AEBE2 /* main.m */; };
+		3957CE9B1AC74DFC008AEBE2 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3957CE9A1AC74DFC008AEBE2 /* AppDelegate.m */; };
+		3957CE9E1AC74DFC008AEBE2 /* TripHistory.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3957CE9C1AC74DFC008AEBE2 /* TripHistory.xcdatamodeld */; };
+		3957CEA11AC74DFC008AEBE2 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3957CEA01AC74DFC008AEBE2 /* ViewController.m */; };
+		3957CEA41AC74DFC008AEBE2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3957CEA21AC74DFC008AEBE2 /* Main.storyboard */; };
+		3957CEA61AC74DFC008AEBE2 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3957CEA51AC74DFC008AEBE2 /* Images.xcassets */; };
+		3957CEA91AC74DFC008AEBE2 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3957CEA71AC74DFC008AEBE2 /* LaunchScreen.xib */; };
+		3957CEB51AC74DFC008AEBE2 /* TripHistoryTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3957CEB41AC74DFC008AEBE2 /* TripHistoryTests.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		3957CE721AC739E0008AEBE2 /* PBXContainerItemProxy */ = {
+		3957CEAF1AC74DFC008AEBE2 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 3957CE511AC739E0008AEBE2 /* Project object */;
+			containerPortal = 3957CE8A1AC74DFC008AEBE2 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 3957CE581AC739E0008AEBE2;
+			remoteGlobalIDString = 3957CE911AC74DFC008AEBE2;
 			remoteInfo = TripHistory;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		3957CE591AC739E0008AEBE2 /* TripHistory.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TripHistory.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		3957CE5D1AC739E0008AEBE2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		3957CE5E1AC739E0008AEBE2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		3957CE611AC739E0008AEBE2 /* TripHistory.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TripHistory.xcdatamodel; sourceTree = "<group>"; };
-		3957CE631AC739E0008AEBE2 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		3957CE661AC739E0008AEBE2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		3957CE681AC739E0008AEBE2 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		3957CE6B1AC739E0008AEBE2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		3957CE711AC739E0008AEBE2 /* TripHistoryTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TripHistoryTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		3957CE761AC739E0008AEBE2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		3957CE771AC739E0008AEBE2 /* TripHistoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripHistoryTests.swift; sourceTree = "<group>"; };
+		3957CE921AC74DFC008AEBE2 /* TripHistory.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TripHistory.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		3957CE961AC74DFC008AEBE2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3957CE971AC74DFC008AEBE2 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		3957CE991AC74DFC008AEBE2 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		3957CE9A1AC74DFC008AEBE2 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		3957CE9D1AC74DFC008AEBE2 /* TripHistory.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TripHistory.xcdatamodel; sourceTree = "<group>"; };
+		3957CE9F1AC74DFC008AEBE2 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		3957CEA01AC74DFC008AEBE2 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		3957CEA31AC74DFC008AEBE2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		3957CEA51AC74DFC008AEBE2 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		3957CEA81AC74DFC008AEBE2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		3957CEAE1AC74DFC008AEBE2 /* TripHistoryTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TripHistoryTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		3957CEB31AC74DFC008AEBE2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3957CEB41AC74DFC008AEBE2 /* TripHistoryTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TripHistoryTests.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		3957CE561AC739E0008AEBE2 /* Frameworks */ = {
+		3957CE8F1AC74DFC008AEBE2 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		3957CE6E1AC739E0008AEBE2 /* Frameworks */ = {
+		3957CEAB1AC74DFC008AEBE2 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -58,59 +62,62 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		3957CE501AC739E0008AEBE2 = {
+		3957CE891AC74DFC008AEBE2 = {
 			isa = PBXGroup;
 			children = (
-				3957CE5B1AC739E0008AEBE2 /* TripHistory */,
-				3957CE741AC739E0008AEBE2 /* TripHistoryTests */,
-				3957CE5A1AC739E0008AEBE2 /* Products */,
+				3957CE941AC74DFC008AEBE2 /* TripHistory */,
+				3957CEB11AC74DFC008AEBE2 /* TripHistoryTests */,
+				3957CE931AC74DFC008AEBE2 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		3957CE5A1AC739E0008AEBE2 /* Products */ = {
+		3957CE931AC74DFC008AEBE2 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				3957CE591AC739E0008AEBE2 /* TripHistory.app */,
-				3957CE711AC739E0008AEBE2 /* TripHistoryTests.xctest */,
+				3957CE921AC74DFC008AEBE2 /* TripHistory.app */,
+				3957CEAE1AC74DFC008AEBE2 /* TripHistoryTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		3957CE5B1AC739E0008AEBE2 /* TripHistory */ = {
+		3957CE941AC74DFC008AEBE2 /* TripHistory */ = {
 			isa = PBXGroup;
 			children = (
-				3957CE5E1AC739E0008AEBE2 /* AppDelegate.swift */,
-				3957CE631AC739E0008AEBE2 /* ViewController.swift */,
-				3957CE651AC739E0008AEBE2 /* Main.storyboard */,
-				3957CE681AC739E0008AEBE2 /* Images.xcassets */,
-				3957CE6A1AC739E0008AEBE2 /* LaunchScreen.xib */,
-				3957CE601AC739E0008AEBE2 /* TripHistory.xcdatamodeld */,
-				3957CE5C1AC739E0008AEBE2 /* Supporting Files */,
+				3957CE991AC74DFC008AEBE2 /* AppDelegate.h */,
+				3957CE9A1AC74DFC008AEBE2 /* AppDelegate.m */,
+				3957CE9F1AC74DFC008AEBE2 /* ViewController.h */,
+				3957CEA01AC74DFC008AEBE2 /* ViewController.m */,
+				3957CEA21AC74DFC008AEBE2 /* Main.storyboard */,
+				3957CEA51AC74DFC008AEBE2 /* Images.xcassets */,
+				3957CEA71AC74DFC008AEBE2 /* LaunchScreen.xib */,
+				3957CE9C1AC74DFC008AEBE2 /* TripHistory.xcdatamodeld */,
+				3957CE951AC74DFC008AEBE2 /* Supporting Files */,
 			);
 			path = TripHistory;
 			sourceTree = "<group>";
 		};
-		3957CE5C1AC739E0008AEBE2 /* Supporting Files */ = {
+		3957CE951AC74DFC008AEBE2 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				3957CE5D1AC739E0008AEBE2 /* Info.plist */,
+				3957CE961AC74DFC008AEBE2 /* Info.plist */,
+				3957CE971AC74DFC008AEBE2 /* main.m */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		3957CE741AC739E0008AEBE2 /* TripHistoryTests */ = {
+		3957CEB11AC74DFC008AEBE2 /* TripHistoryTests */ = {
 			isa = PBXGroup;
 			children = (
-				3957CE771AC739E0008AEBE2 /* TripHistoryTests.swift */,
-				3957CE751AC739E0008AEBE2 /* Supporting Files */,
+				3957CEB41AC74DFC008AEBE2 /* TripHistoryTests.m */,
+				3957CEB21AC74DFC008AEBE2 /* Supporting Files */,
 			);
 			path = TripHistoryTests;
 			sourceTree = "<group>";
 		};
-		3957CE751AC739E0008AEBE2 /* Supporting Files */ = {
+		3957CEB21AC74DFC008AEBE2 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				3957CE761AC739E0008AEBE2 /* Info.plist */,
+				3957CEB31AC74DFC008AEBE2 /* Info.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -118,13 +125,13 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		3957CE581AC739E0008AEBE2 /* TripHistory */ = {
+		3957CE911AC74DFC008AEBE2 /* TripHistory */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 3957CE7B1AC739E0008AEBE2 /* Build configuration list for PBXNativeTarget "TripHistory" */;
+			buildConfigurationList = 3957CEB81AC74DFC008AEBE2 /* Build configuration list for PBXNativeTarget "TripHistory" */;
 			buildPhases = (
-				3957CE551AC739E0008AEBE2 /* Sources */,
-				3957CE561AC739E0008AEBE2 /* Frameworks */,
-				3957CE571AC739E0008AEBE2 /* Resources */,
+				3957CE8E1AC74DFC008AEBE2 /* Sources */,
+				3957CE8F1AC74DFC008AEBE2 /* Frameworks */,
+				3957CE901AC74DFC008AEBE2 /* Resources */,
 			);
 			buildRules = (
 			);
@@ -132,46 +139,46 @@
 			);
 			name = TripHistory;
 			productName = TripHistory;
-			productReference = 3957CE591AC739E0008AEBE2 /* TripHistory.app */;
+			productReference = 3957CE921AC74DFC008AEBE2 /* TripHistory.app */;
 			productType = "com.apple.product-type.application";
 		};
-		3957CE701AC739E0008AEBE2 /* TripHistoryTests */ = {
+		3957CEAD1AC74DFC008AEBE2 /* TripHistoryTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 3957CE7E1AC739E0008AEBE2 /* Build configuration list for PBXNativeTarget "TripHistoryTests" */;
+			buildConfigurationList = 3957CEBB1AC74DFC008AEBE2 /* Build configuration list for PBXNativeTarget "TripHistoryTests" */;
 			buildPhases = (
-				3957CE6D1AC739E0008AEBE2 /* Sources */,
-				3957CE6E1AC739E0008AEBE2 /* Frameworks */,
-				3957CE6F1AC739E0008AEBE2 /* Resources */,
+				3957CEAA1AC74DFC008AEBE2 /* Sources */,
+				3957CEAB1AC74DFC008AEBE2 /* Frameworks */,
+				3957CEAC1AC74DFC008AEBE2 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				3957CE731AC739E0008AEBE2 /* PBXTargetDependency */,
+				3957CEB01AC74DFC008AEBE2 /* PBXTargetDependency */,
 			);
 			name = TripHistoryTests;
 			productName = TripHistoryTests;
-			productReference = 3957CE711AC739E0008AEBE2 /* TripHistoryTests.xctest */;
+			productReference = 3957CEAE1AC74DFC008AEBE2 /* TripHistoryTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		3957CE511AC739E0008AEBE2 /* Project object */ = {
+		3957CE8A1AC74DFC008AEBE2 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 0630;
 				ORGANIZATIONNAME = Lyft;
 				TargetAttributes = {
-					3957CE581AC739E0008AEBE2 = {
+					3957CE911AC74DFC008AEBE2 = {
 						CreatedOnToolsVersion = 6.3;
 					};
-					3957CE701AC739E0008AEBE2 = {
+					3957CEAD1AC74DFC008AEBE2 = {
 						CreatedOnToolsVersion = 6.3;
-						TestTargetID = 3957CE581AC739E0008AEBE2;
+						TestTargetID = 3957CE911AC74DFC008AEBE2;
 					};
 				};
 			};
-			buildConfigurationList = 3957CE541AC739E0008AEBE2 /* Build configuration list for PBXProject "TripHistory" */;
+			buildConfigurationList = 3957CE8D1AC74DFC008AEBE2 /* Build configuration list for PBXProject "TripHistory" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -179,29 +186,29 @@
 				en,
 				Base,
 			);
-			mainGroup = 3957CE501AC739E0008AEBE2;
-			productRefGroup = 3957CE5A1AC739E0008AEBE2 /* Products */;
+			mainGroup = 3957CE891AC74DFC008AEBE2;
+			productRefGroup = 3957CE931AC74DFC008AEBE2 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				3957CE581AC739E0008AEBE2 /* TripHistory */,
-				3957CE701AC739E0008AEBE2 /* TripHistoryTests */,
+				3957CE911AC74DFC008AEBE2 /* TripHistory */,
+				3957CEAD1AC74DFC008AEBE2 /* TripHistoryTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		3957CE571AC739E0008AEBE2 /* Resources */ = {
+		3957CE901AC74DFC008AEBE2 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3957CE671AC739E0008AEBE2 /* Main.storyboard in Resources */,
-				3957CE6C1AC739E0008AEBE2 /* LaunchScreen.xib in Resources */,
-				3957CE691AC739E0008AEBE2 /* Images.xcassets in Resources */,
+				3957CEA41AC74DFC008AEBE2 /* Main.storyboard in Resources */,
+				3957CEA91AC74DFC008AEBE2 /* LaunchScreen.xib in Resources */,
+				3957CEA61AC74DFC008AEBE2 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		3957CE6F1AC739E0008AEBE2 /* Resources */ = {
+		3957CEAC1AC74DFC008AEBE2 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -211,47 +218,48 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		3957CE551AC739E0008AEBE2 /* Sources */ = {
+		3957CE8E1AC74DFC008AEBE2 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3957CE641AC739E0008AEBE2 /* ViewController.swift in Sources */,
-				3957CE5F1AC739E0008AEBE2 /* AppDelegate.swift in Sources */,
-				3957CE621AC739E0008AEBE2 /* TripHistory.xcdatamodeld in Sources */,
+				3957CE9B1AC74DFC008AEBE2 /* AppDelegate.m in Sources */,
+				3957CE9E1AC74DFC008AEBE2 /* TripHistory.xcdatamodeld in Sources */,
+				3957CEA11AC74DFC008AEBE2 /* ViewController.m in Sources */,
+				3957CE981AC74DFC008AEBE2 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		3957CE6D1AC739E0008AEBE2 /* Sources */ = {
+		3957CEAA1AC74DFC008AEBE2 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3957CE781AC739E0008AEBE2 /* TripHistoryTests.swift in Sources */,
+				3957CEB51AC74DFC008AEBE2 /* TripHistoryTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		3957CE731AC739E0008AEBE2 /* PBXTargetDependency */ = {
+		3957CEB01AC74DFC008AEBE2 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 3957CE581AC739E0008AEBE2 /* TripHistory */;
-			targetProxy = 3957CE721AC739E0008AEBE2 /* PBXContainerItemProxy */;
+			target = 3957CE911AC74DFC008AEBE2 /* TripHistory */;
+			targetProxy = 3957CEAF1AC74DFC008AEBE2 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		3957CE651AC739E0008AEBE2 /* Main.storyboard */ = {
+		3957CEA21AC74DFC008AEBE2 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				3957CE661AC739E0008AEBE2 /* Base */,
+				3957CEA31AC74DFC008AEBE2 /* Base */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
-		3957CE6A1AC739E0008AEBE2 /* LaunchScreen.xib */ = {
+		3957CEA71AC74DFC008AEBE2 /* LaunchScreen.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
-				3957CE6B1AC739E0008AEBE2 /* Base */,
+				3957CEA81AC74DFC008AEBE2 /* Base */,
 			);
 			name = LaunchScreen.xib;
 			sourceTree = "<group>";
@@ -259,7 +267,7 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		3957CE791AC739E0008AEBE2 /* Debug */ = {
+		3957CEB61AC74DFC008AEBE2 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -299,12 +307,11 @@
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
-		3957CE7A1AC739E0008AEBE2 /* Release */ = {
+		3957CEB71AC74DFC008AEBE2 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -342,7 +349,7 @@
 			};
 			name = Release;
 		};
-		3957CE7C1AC739E0008AEBE2 /* Debug */ = {
+		3957CEB91AC74DFC008AEBE2 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -352,7 +359,7 @@
 			};
 			name = Debug;
 		};
-		3957CE7D1AC739E0008AEBE2 /* Release */ = {
+		3957CEBA1AC74DFC008AEBE2 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -362,7 +369,7 @@
 			};
 			name = Release;
 		};
-		3957CE7F1AC739E0008AEBE2 /* Debug */ = {
+		3957CEBC1AC74DFC008AEBE2 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -381,7 +388,7 @@
 			};
 			name = Debug;
 		};
-		3957CE801AC739E0008AEBE2 /* Release */ = {
+		3957CEBD1AC74DFC008AEBE2 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -399,45 +406,45 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		3957CE541AC739E0008AEBE2 /* Build configuration list for PBXProject "TripHistory" */ = {
+		3957CE8D1AC74DFC008AEBE2 /* Build configuration list for PBXProject "TripHistory" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				3957CE791AC739E0008AEBE2 /* Debug */,
-				3957CE7A1AC739E0008AEBE2 /* Release */,
+				3957CEB61AC74DFC008AEBE2 /* Debug */,
+				3957CEB71AC74DFC008AEBE2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		3957CE7B1AC739E0008AEBE2 /* Build configuration list for PBXNativeTarget "TripHistory" */ = {
+		3957CEB81AC74DFC008AEBE2 /* Build configuration list for PBXNativeTarget "TripHistory" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				3957CE7C1AC739E0008AEBE2 /* Debug */,
-				3957CE7D1AC739E0008AEBE2 /* Release */,
+				3957CEB91AC74DFC008AEBE2 /* Debug */,
+				3957CEBA1AC74DFC008AEBE2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 		};
-		3957CE7E1AC739E0008AEBE2 /* Build configuration list for PBXNativeTarget "TripHistoryTests" */ = {
+		3957CEBB1AC74DFC008AEBE2 /* Build configuration list for PBXNativeTarget "TripHistoryTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				3957CE7F1AC739E0008AEBE2 /* Debug */,
-				3957CE801AC739E0008AEBE2 /* Release */,
+				3957CEBC1AC74DFC008AEBE2 /* Debug */,
+				3957CEBD1AC74DFC008AEBE2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		3957CE601AC739E0008AEBE2 /* TripHistory.xcdatamodeld */ = {
+		3957CE9C1AC74DFC008AEBE2 /* TripHistory.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				3957CE611AC739E0008AEBE2 /* TripHistory.xcdatamodel */,
+				3957CE9D1AC74DFC008AEBE2 /* TripHistory.xcdatamodel */,
 			);
-			currentVersion = 3957CE611AC739E0008AEBE2 /* TripHistory.xcdatamodel */;
+			currentVersion = 3957CE9D1AC74DFC008AEBE2 /* TripHistory.xcdatamodel */;
 			path = TripHistory.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};
 /* End XCVersionGroup section */
 	};
-	rootObject = 3957CE511AC739E0008AEBE2 /* Project object */;
+	rootObject = 3957CE8A1AC74DFC008AEBE2 /* Project object */;
 }
