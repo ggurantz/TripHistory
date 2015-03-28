@@ -13,7 +13,7 @@
 @interface LFLocationManager () <CLLocationManagerDelegate>
 
 @property (nonatomic, readwrite, strong) CLLocationManager *locationManager;
-@property (nonatomic, readwrite, weak) id<THLocationManagerDelegate> delegate;
+@property (nonatomic, readwrite, weak) id<LFLocationManagerDelegate> delegate;
 
 @end
 
@@ -25,7 +25,7 @@
     return nil;
 }
 
-- (instancetype)initWithDelegate:(id<THLocationManagerDelegate>)delegate
+- (instancetype)initWithDelegate:(id<LFLocationManagerDelegate>)delegate
 {
     self = [super init];
     if (self)
@@ -38,9 +38,9 @@
     return self;
 }
 
-- (void)failWithError:(NSError *)error
+- (void)handleAuthorizationError:(NSError *)error
 {
-    [self.delegate locationManager:self didFailWithError:error];
+    [self.delegate locationManager:self didFailAuthorizationWithError:error];
 }
 
 - (void)handleAuthorizationStatus:(CLAuthorizationStatus)status
@@ -55,7 +55,7 @@
         {
             NSString *errorString = [NSString stringWithFormat:@"Not authorized to use location services. Status: %d", status];
             NSError *error = [NSError errorWithLocalizedDescription:errorString];
-            [self failWithError:error];
+            [self handleAuthorizationError:error];
         }
             break;
             
@@ -75,7 +75,7 @@
 
 - (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error
 {
-    [self failWithError:error];
+    [self handleAuthorizationError:error];
 }
 
 - (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations

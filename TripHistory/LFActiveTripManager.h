@@ -9,8 +9,14 @@
 #import <Foundation/Foundation.h>
 
 @class LFTrip;
+@protocol LFActiveTripManagerDelegate;
 
 @interface LFActiveTripManager : NSObject
+
+- (instancetype)initWithDelegate:(id<LFActiveTripManagerDelegate>)delegate;
+
+// May be nil if no active trip
+@property (nonatomic, readonly, strong) LFTrip *trip;
 
 @end
 
@@ -19,5 +25,6 @@
 - (void)activeTripManager:(LFActiveTripManager *)tripManager didBeginNewTrip:(LFTrip *)trip;
 - (void)activeTripManager:(LFActiveTripManager *)tripManager didUpdateTrip:(LFTrip *)trip;
 - (void)activeTripManager:(LFActiveTripManager *)tripManager didCompleteTrip:(LFTrip *)trip;
+- (void)activeTripManager:(LFActiveTripManager *)tripManager didFailAuthorizationWithError:(NSError *)error;
 
 @end

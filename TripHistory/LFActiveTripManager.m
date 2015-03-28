@@ -9,6 +9,29 @@
 #import "LFActiveTripManager.h"
 #import "LFLocationManager.h"
 
+@interface LFActiveTripManager () <LFLocationManagerDelegate>
+
+@property (nonatomic, readwrite, weak) id<LFActiveTripManagerDelegate> delegate;
+
+@end
+
 @implementation LFActiveTripManager
+
+- (instancetype)initWithDelegate:(id<LFActiveTripManagerDelegate>)delegate
+{
+    self = [super init];
+    if (self)
+    {
+        self.delegate = delegate;
+    }
+    return self;
+}
+
+#pragma mark - LFLocationManagerDelegate
+
+- (void)locationManager:(LFLocationManager *)locationManager didFailAuthorizationWithError:(NSError *)error
+{
+    [self.delegate activeTripManager:self didFailAuthorizationWithError:error];
+}
 
 @end

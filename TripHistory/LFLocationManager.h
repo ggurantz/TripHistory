@@ -8,16 +8,16 @@
 
 #import <Foundation/Foundation.h>
 
-@protocol THLocationManagerDelegate;
+@protocol LFLocationManagerDelegate;
 
 @interface LFLocationManager : NSObject
 
-- (instancetype)initWithDelegate:(id<THLocationManagerDelegate>)delegate;
+- (instancetype)initWithDelegate:(id<LFLocationManagerDelegate>)delegate;
 
 @end
 
-@protocol THLocationManagerDelegate <NSObject>
+@protocol LFLocationManagerDelegate <NSObject>
 
-- (void)locationManager:(LFLocationManager *)locationManager didFailWithError:(NSError *)error;
+- (void)locationManager:(LFLocationManager *)locationManager didFailAuthorizationWithError:(NSError *)error;
 
 @end
