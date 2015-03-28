@@ -14,13 +14,14 @@
 		3957CEA41AC74DFC008AEBE2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3957CEA21AC74DFC008AEBE2 /* Main.storyboard */; };
 		3957CEA61AC74DFC008AEBE2 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3957CEA51AC74DFC008AEBE2 /* Images.xcassets */; };
 		3957CEA91AC74DFC008AEBE2 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3957CEA71AC74DFC008AEBE2 /* LaunchScreen.xib */; };
-		3957CEB51AC74DFC008AEBE2 /* TripHistoryTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3957CEB41AC74DFC008AEBE2 /* TripHistoryTests.m */; };
 		3957CEC01AC74EA4008AEBE2 /* LFActiveTripManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3957CEBF1AC74EA4008AEBE2 /* LFActiveTripManager.m */; };
 		3957CEC31AC74EC4008AEBE2 /* LFLocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3957CEC21AC74EC4008AEBE2 /* LFLocationManager.m */; };
 		3957CEC51AC74EDE008AEBE2 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3957CEC41AC74EDE008AEBE2 /* CoreLocation.framework */; };
 		3957CED21AC752F6008AEBE2 /* NSError+LFExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 3957CED11AC752F6008AEBE2 /* NSError+LFExtensions.m */; };
 		3957CED41AC755AA008AEBE2 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3957CED31AC755AA008AEBE2 /* MapKit.framework */; };
 		3957CED71AC758F7008AEBE2 /* LFTrip.m in Sources */ = {isa = PBXBuildFile; fileRef = 3957CED61AC758F7008AEBE2 /* LFTrip.m */; };
+		399C7DA31AC76C3A007F2EE0 /* LFActiveTripManagerTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = 399C7DA11AC76C3A007F2EE0 /* LFActiveTripManagerTestCase.m */; };
+		399C7DA41AC76C3A007F2EE0 /* LFLocationManagerTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = 399C7DA21AC76C3A007F2EE0 /* LFLocationManagerTestCase.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,7 +48,6 @@
 		3957CEA81AC74DFC008AEBE2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		3957CEAE1AC74DFC008AEBE2 /* TripHistoryTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TripHistoryTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3957CEB31AC74DFC008AEBE2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		3957CEB41AC74DFC008AEBE2 /* TripHistoryTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TripHistoryTests.m; sourceTree = "<group>"; };
 		3957CEBE1AC74EA4008AEBE2 /* LFActiveTripManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LFActiveTripManager.h; sourceTree = "<group>"; };
 		3957CEBF1AC74EA4008AEBE2 /* LFActiveTripManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LFActiveTripManager.m; sourceTree = "<group>"; };
 		3957CEC11AC74EC4008AEBE2 /* LFLocationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LFLocationManager.h; sourceTree = "<group>"; };
@@ -58,6 +58,8 @@
 		3957CED31AC755AA008AEBE2 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		3957CED51AC758F7008AEBE2 /* LFTrip.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LFTrip.h; sourceTree = "<group>"; };
 		3957CED61AC758F7008AEBE2 /* LFTrip.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LFTrip.m; sourceTree = "<group>"; };
+		399C7DA11AC76C3A007F2EE0 /* LFActiveTripManagerTestCase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LFActiveTripManagerTestCase.m; sourceTree = "<group>"; };
+		399C7DA21AC76C3A007F2EE0 /* LFLocationManagerTestCase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LFLocationManagerTestCase.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -135,7 +137,8 @@
 		3957CEB11AC74DFC008AEBE2 /* TripHistoryTests */ = {
 			isa = PBXGroup;
 			children = (
-				3957CEB41AC74DFC008AEBE2 /* TripHistoryTests.m */,
+				399C7DA11AC76C3A007F2EE0 /* LFActiveTripManagerTestCase.m */,
+				399C7DA21AC76C3A007F2EE0 /* LFLocationManagerTestCase.m */,
 				3957CEB21AC74DFC008AEBE2 /* Supporting Files */,
 			);
 			path = TripHistoryTests;
@@ -278,7 +281,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3957CEB51AC74DFC008AEBE2 /* TripHistoryTests.m in Sources */,
+				399C7DA41AC76C3A007F2EE0 /* LFLocationManagerTestCase.m in Sources */,
+				399C7DA31AC76C3A007F2EE0 /* LFActiveTripManagerTestCase.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
