@@ -15,6 +15,12 @@
 		3957CEA61AC74DFC008AEBE2 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3957CEA51AC74DFC008AEBE2 /* Images.xcassets */; };
 		3957CEA91AC74DFC008AEBE2 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3957CEA71AC74DFC008AEBE2 /* LaunchScreen.xib */; };
 		3957CEB51AC74DFC008AEBE2 /* TripHistoryTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3957CEB41AC74DFC008AEBE2 /* TripHistoryTests.m */; };
+		3957CEC01AC74EA4008AEBE2 /* LFActiveTripManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3957CEBF1AC74EA4008AEBE2 /* LFActiveTripManager.m */; };
+		3957CEC31AC74EC4008AEBE2 /* LFLocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3957CEC21AC74EC4008AEBE2 /* LFLocationManager.m */; };
+		3957CEC51AC74EDE008AEBE2 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3957CEC41AC74EDE008AEBE2 /* CoreLocation.framework */; };
+		3957CED21AC752F6008AEBE2 /* NSError+LFExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 3957CED11AC752F6008AEBE2 /* NSError+LFExtensions.m */; };
+		3957CED41AC755AA008AEBE2 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3957CED31AC755AA008AEBE2 /* MapKit.framework */; };
+		3957CED71AC758F7008AEBE2 /* LFTrip.m in Sources */ = {isa = PBXBuildFile; fileRef = 3957CED61AC758F7008AEBE2 /* LFTrip.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,6 +48,16 @@
 		3957CEAE1AC74DFC008AEBE2 /* TripHistoryTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TripHistoryTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3957CEB31AC74DFC008AEBE2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3957CEB41AC74DFC008AEBE2 /* TripHistoryTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TripHistoryTests.m; sourceTree = "<group>"; };
+		3957CEBE1AC74EA4008AEBE2 /* LFActiveTripManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LFActiveTripManager.h; sourceTree = "<group>"; };
+		3957CEBF1AC74EA4008AEBE2 /* LFActiveTripManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LFActiveTripManager.m; sourceTree = "<group>"; };
+		3957CEC11AC74EC4008AEBE2 /* LFLocationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LFLocationManager.h; sourceTree = "<group>"; };
+		3957CEC21AC74EC4008AEBE2 /* LFLocationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LFLocationManager.m; sourceTree = "<group>"; };
+		3957CEC41AC74EDE008AEBE2 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		3957CED01AC752F6008AEBE2 /* NSError+LFExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSError+LFExtensions.h"; sourceTree = "<group>"; };
+		3957CED11AC752F6008AEBE2 /* NSError+LFExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSError+LFExtensions.m"; sourceTree = "<group>"; };
+		3957CED31AC755AA008AEBE2 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		3957CED51AC758F7008AEBE2 /* LFTrip.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LFTrip.h; sourceTree = "<group>"; };
+		3957CED61AC758F7008AEBE2 /* LFTrip.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LFTrip.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -49,6 +65,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3957CED41AC755AA008AEBE2 /* MapKit.framework in Frameworks */,
+				3957CEC51AC74EDE008AEBE2 /* CoreLocation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -65,6 +83,8 @@
 		3957CE891AC74DFC008AEBE2 = {
 			isa = PBXGroup;
 			children = (
+				3957CED31AC755AA008AEBE2 /* MapKit.framework */,
+				3957CEC41AC74EDE008AEBE2 /* CoreLocation.framework */,
 				3957CE941AC74DFC008AEBE2 /* TripHistory */,
 				3957CEB11AC74DFC008AEBE2 /* TripHistoryTests */,
 				3957CE931AC74DFC008AEBE2 /* Products */,
@@ -83,10 +103,17 @@
 		3957CE941AC74DFC008AEBE2 /* TripHistory */ = {
 			isa = PBXGroup;
 			children = (
+				3957CEC91AC75076008AEBE2 /* Extensions */,
 				3957CE991AC74DFC008AEBE2 /* AppDelegate.h */,
 				3957CE9A1AC74DFC008AEBE2 /* AppDelegate.m */,
 				3957CE9F1AC74DFC008AEBE2 /* ViewController.h */,
 				3957CEA01AC74DFC008AEBE2 /* ViewController.m */,
+				3957CED51AC758F7008AEBE2 /* LFTrip.h */,
+				3957CED61AC758F7008AEBE2 /* LFTrip.m */,
+				3957CEBE1AC74EA4008AEBE2 /* LFActiveTripManager.h */,
+				3957CEBF1AC74EA4008AEBE2 /* LFActiveTripManager.m */,
+				3957CEC11AC74EC4008AEBE2 /* LFLocationManager.h */,
+				3957CEC21AC74EC4008AEBE2 /* LFLocationManager.m */,
 				3957CEA21AC74DFC008AEBE2 /* Main.storyboard */,
 				3957CEA51AC74DFC008AEBE2 /* Images.xcassets */,
 				3957CEA71AC74DFC008AEBE2 /* LaunchScreen.xib */,
@@ -120,6 +147,15 @@
 				3957CEB31AC74DFC008AEBE2 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		3957CEC91AC75076008AEBE2 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				3957CED01AC752F6008AEBE2 /* NSError+LFExtensions.h */,
+				3957CED11AC752F6008AEBE2 /* NSError+LFExtensions.m */,
+			);
+			name = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -171,6 +207,11 @@
 				TargetAttributes = {
 					3957CE911AC74DFC008AEBE2 = {
 						CreatedOnToolsVersion = 6.3;
+						SystemCapabilities = {
+							com.apple.Maps.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 					3957CEAD1AC74DFC008AEBE2 = {
 						CreatedOnToolsVersion = 6.3;
@@ -222,9 +263,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3957CEC31AC74EC4008AEBE2 /* LFLocationManager.m in Sources */,
 				3957CE9B1AC74DFC008AEBE2 /* AppDelegate.m in Sources */,
+				3957CED21AC752F6008AEBE2 /* NSError+LFExtensions.m in Sources */,
 				3957CE9E1AC74DFC008AEBE2 /* TripHistory.xcdatamodeld in Sources */,
 				3957CEA11AC74DFC008AEBE2 /* ViewController.m in Sources */,
+				3957CEC01AC74EA4008AEBE2 /* LFActiveTripManager.m in Sources */,
+				3957CED71AC758F7008AEBE2 /* LFTrip.m in Sources */,
 				3957CE981AC74DFC008AEBE2 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -422,6 +467,7 @@
 				3957CEBA1AC74DFC008AEBE2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		3957CEBB1AC74DFC008AEBE2 /* Build configuration list for PBXNativeTarget "TripHistoryTests" */ = {
 			isa = XCConfigurationList;
@@ -430,6 +476,7 @@
 				3957CEBD1AC74DFC008AEBE2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
