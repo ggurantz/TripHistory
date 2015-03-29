@@ -10,7 +10,7 @@
 #import <XCTest/XCTest.h>
 #import "LFTripsManager+Protected.h"
 #import "LFActiveTripManager.h"
-#import "LFTrip.h"
+#import "LFActiveTrip.h"
 
 @interface LFTripsManagerTestCase : XCTestCase
 
@@ -41,7 +41,7 @@
 {
     LFActiveTripManager *activeTripManager = self.tripsManager.activeTripManager;
     [[activeTripManager delegate] activeTripManager:activeTripManager
-                                    didBeginNewTrip:[[LFTrip alloc] init]];
+                                    didBeginNewTrip:[[LFActiveTrip alloc] init]];
 }
 
 - (void)testThatItCreatesATrip
@@ -73,6 +73,16 @@
     [activeTripManager.delegate activeTripManager:activeTripManager didFailAuthorizationWithError:[NSError errorWithDomain:@"blah" code:0 userInfo:nil]];
     
     XCTAssertFalse(self.tripsManager.loggingEnabled);
+}
+
+- (void)testThatItCompletesATripWhenTurningLoggingOff
+{
+    self.tripsManager.loggingEnabled = YES;
+    [self createATrip];
+    self.tripsManager.loggingEnabled = NO;
+    
+    XCTAssertEqual(self.tripsManager.allTrips.count, 1);
+    XCTAssertEqual([self.tripsManager.allTrips.lastObject state], LFTripStateCompleted);
 }
 
 @end

@@ -58,9 +58,11 @@ NSString *const LFTripsManagerDidFailAuthorization = @"LFTripsManagerDidFailAuth
         if (loggingEnabled)
         {
             self.activeTripManager = [[LFActiveTripManager alloc] initWithDelegate:self];
+            [self.activeTripManager startUpdatingLocation];
         }
         else
         {
+            [self.activeTripManager stopUpdatingLocation];
             self.activeTripManager = nil;
         }
     }

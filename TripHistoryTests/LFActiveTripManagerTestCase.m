@@ -34,6 +34,8 @@
     self.updates = 0;
     self.completions = 0;
     self.authorizationError = nil;
+    
+    [self.tripManager startUpdatingLocation];
 }
 
 - (void)addLocations:(NSArray *)locations

@@ -30,9 +30,19 @@ NSTimeInterval const kLFActiveTripManagerTripEndIdleTimeInterval = 60.0f; // 1 m
     if (self)
     {
         self.delegate = delegate;
-        self.locationManager = [[LFLocationManager alloc] initWithDelegate:self];
     }
     return self;
+}
+
+- (void)startUpdatingLocation
+{
+    self.locationManager = [[LFLocationManager alloc] initWithDelegate:self];
+}
+
+- (void)stopUpdatingLocation
+{
+    self.locationManager = nil;
+    [self markActiveTripAsCompleted];
 }
 
 - (LFTrip *)trip
@@ -47,6 +57,16 @@ NSTimeInterval const kLFActiveTripManagerTripEndIdleTimeInterval = 60.0f; // 1 m
         self.activeTrip = [[LFActiveTrip alloc] init];
         [self.activeTrip addLocations:@[location]];
         [self.delegate activeTripManager:self didBeginNewTrip:self.activeTrip];
+    }
+}
+
+- (void)markActiveTripAsCompleted
+{
+    if (self.activeTrip != nil)
+    {
+        [self.activeTrip updateState:LFTripStateCompleted];
+        [self.delegate activeTripManager:self didCompleteTrip:self.activeTrip];
+        self.activeTrip = nil;
     }
 }
 
@@ -66,10 +86,7 @@ NSTimeInterval const kLFActiveTripManagerTripEndIdleTimeInterval = 60.0f; // 1 m
             
             if (timeIntervalSinceLastLocation >= kLFActiveTripManagerTripEndIdleTimeInterval)
             {
-                [self.activeTrip updateState:LFTripStateCompleted];
-                [self.delegate activeTripManager:self didCompleteTrip:self.activeTrip];
-                self.activeTrip = nil;
-                
+                [self markActiveTripAsCompleted];
                 [self createActiveTripIfNecessaryWithLocation:location];
             }
             else if (location.speed > kLFActiveTripManagerMinimumActivitySpeed)

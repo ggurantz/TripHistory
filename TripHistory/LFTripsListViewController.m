@@ -33,6 +33,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    self.tripsManager = [[LFTripsManager alloc] init];
     self.notificationCenter = [NSNotificationCenter defaultCenter];
     [self.notificationCenter addObserver:self
                                 selector:@selector(tripsManagerDidBeginNewTrip:)
@@ -51,10 +52,7 @@
                                     name:LFTripsManagerDidFailAuthorization
                                   object:self.tripsManager];
     
-    self.tripsManager = [[LFTripsManager alloc] init];
     self.tableView.layoutMargins = UIEdgeInsetsZero;
-    
-    
 }
 
 - (void)didReceiveMemoryWarning {
