@@ -8,11 +8,19 @@
 
 #import "LFTripsManager.h"
 #import "LFActiveTripManager.h"
+#import "NSNotification+LFTrip.h"
+#import "NSNotification+NSError.h"
+
+NSString *const LFTripsManagerDidBeginNewTripNotification = @"LFTripsManagerDidBeginNewTripNotification";
+NSString *const LFTripsManagerDidUpdateTripNotification = @"LFTripsManagerDidUpdateTripNotification";
+NSString *const LFTripsManagerDidCompleteTripNotification = @"LFTripsManagerDidCompleteTripNotification";
+NSString *const LFTripsManagerDidFailAuthorization = @"LFTripsManagerDidFailAuthorization";
 
 @interface LFTripsManager () <LFActiveTripManagerDelegate>
 
 @property (nonatomic, readwrite, strong) NSMutableArray *trips;
 @property (nonatomic, readwrite, strong) LFActiveTripManager *activeTripManager;
+@property (nonatomic, readwrite, strong) NSNotificationCenter *notificationCenter;
 
 @end
 
@@ -23,6 +31,7 @@
     self = [super init];
     if (self) {
         self.trips = [NSMutableArray array];
+        self.notificationCenter = [NSNotificationCenter defaultCenter];
     }
     return self;
 }
@@ -62,21 +71,31 @@
 - (void)activeTripManager:(LFActiveTripManager *)tripManager didBeginNewTrip:(LFTrip *)trip
 {
     [self.trips insertObject:trip atIndex:0];
+    [self.notificationCenter postNotificationName:LFTripsManagerDidBeginNewTripNotification
+                                           object:self
+                                             trip:trip];
 }
 
 - (void)activeTripManager:(LFActiveTripManager *)tripManager didUpdateTrip:(LFTrip *)trip
 {
-    
+    [self.notificationCenter postNotificationName:LFTripsManagerDidUpdateTripNotification
+                                           object:self
+                                             trip:trip];
 }
 
 - (void)activeTripManager:(LFActiveTripManager *)tripManager didCompleteTrip:(LFTrip *)trip
 {
-    
+    [self.notificationCenter postNotificationName:LFTripsManagerDidCompleteTripNotification
+                                           object:self
+                                             trip:trip];
 }
 
 - (void)activeTripManager:(LFActiveTripManager *)tripManager didFailAuthorizationWithError:(NSError *)error
 {
     self.loggingEnabled = NO;
+    [self.notificationCenter postNotificationName:LFTripsManagerDidFailAuthorization
+                                           object:self
+                                            error:error];
 }
 
 @end

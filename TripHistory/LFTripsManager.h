@@ -15,6 +15,11 @@
  it is using shared data storage
  */
 
+extern NSString *const LFTripsManagerDidBeginNewTripNotification;
+extern NSString *const LFTripsManagerDidUpdateTripNotification;
+extern NSString *const LFTripsManagerDidCompleteTripNotification;
+extern NSString *const LFTripsManagerDidFailAuthorization;
+
 @interface LFTripsManager : NSObject
 
 @property (readonly) NSArray *allTrips;
