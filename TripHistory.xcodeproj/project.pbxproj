@@ -31,6 +31,9 @@
 		396CCBFD1AC7D48B005FBEE3 /* LFTimeInterval.m in Sources */ = {isa = PBXBuildFile; fileRef = 396CCBFC1AC7D48B005FBEE3 /* LFTimeInterval.m */; };
 		396CCC031AC7D9BF005FBEE3 /* NSDateFormatter+LFExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 396CCC021AC7D9BF005FBEE3 /* NSDateFormatter+LFExtensions.m */; };
 		3970C9941AC85A2400062F64 /* LFTripCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3970C9931AC85A2400062F64 /* LFTripCell.m */; };
+		3970C9A01AC8A27E00062F64 /* LFTripDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3970C99F1AC8A27E00062F64 /* LFTripDetailViewController.m */; };
+		3970C9A21AC8A67B00062F64 /* LFTripDetailViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3970C9A11AC8A67B00062F64 /* LFTripDetailViewController.storyboard */; };
+		3970C9AB1AC8A77000062F64 /* UIViewController+LFExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 3970C9AA1AC8A77000062F64 /* UIViewController+LFExtensions.m */; };
 		399C7DA31AC76C3A007F2EE0 /* LFActiveTripManagerTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = 399C7DA11AC76C3A007F2EE0 /* LFActiveTripManagerTestCase.m */; };
 		399C7DA41AC76C3A007F2EE0 /* LFLocationManagerTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = 399C7DA21AC76C3A007F2EE0 /* LFLocationManagerTestCase.m */; };
 /* End PBXBuildFile section */
@@ -90,6 +93,11 @@
 		396CCC021AC7D9BF005FBEE3 /* NSDateFormatter+LFExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDateFormatter+LFExtensions.m"; sourceTree = "<group>"; };
 		3970C9921AC85A2400062F64 /* LFTripCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LFTripCell.h; sourceTree = "<group>"; };
 		3970C9931AC85A2400062F64 /* LFTripCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LFTripCell.m; sourceTree = "<group>"; };
+		3970C99E1AC8A27E00062F64 /* LFTripDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LFTripDetailViewController.h; sourceTree = "<group>"; };
+		3970C99F1AC8A27E00062F64 /* LFTripDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LFTripDetailViewController.m; sourceTree = "<group>"; };
+		3970C9A11AC8A67B00062F64 /* LFTripDetailViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LFTripDetailViewController.storyboard; sourceTree = "<group>"; };
+		3970C9A91AC8A77000062F64 /* UIViewController+LFExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+LFExtensions.h"; sourceTree = "<group>"; };
+		3970C9AA1AC8A77000062F64 /* UIViewController+LFExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+LFExtensions.m"; sourceTree = "<group>"; };
 		399C7DA11AC76C3A007F2EE0 /* LFActiveTripManagerTestCase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LFActiveTripManagerTestCase.m; sourceTree = "<group>"; };
 		399C7DA21AC76C3A007F2EE0 /* LFLocationManagerTestCase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LFLocationManagerTestCase.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -191,6 +199,8 @@
 				396CCBF91AC7CE92005FBEE3 /* NSNotification+NSError.m */,
 				396CCC011AC7D9BF005FBEE3 /* NSDateFormatter+LFExtensions.h */,
 				396CCC021AC7D9BF005FBEE3 /* NSDateFormatter+LFExtensions.m */,
+				3970C9A91AC8A77000062F64 /* UIViewController+LFExtensions.h */,
+				3970C9AA1AC8A77000062F64 /* UIViewController+LFExtensions.m */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -218,11 +228,14 @@
 		396CCBFF1AC7D6AA005FBEE3 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				3957CEA21AC74DFC008AEBE2 /* Main.storyboard */,
 				396CCBE91AC7C3B6005FBEE3 /* LFTripsListViewController.h */,
 				396CCBEA1AC7C3B6005FBEE3 /* LFTripsListViewController.m */,
 				3970C9921AC85A2400062F64 /* LFTripCell.h */,
 				3970C9931AC85A2400062F64 /* LFTripCell.m */,
-				3957CEA21AC74DFC008AEBE2 /* Main.storyboard */,
+				3970C9A11AC8A67B00062F64 /* LFTripDetailViewController.storyboard */,
+				3970C99E1AC8A27E00062F64 /* LFTripDetailViewController.h */,
+				3970C99F1AC8A27E00062F64 /* LFTripDetailViewController.m */,
 				3957CEA71AC74DFC008AEBE2 /* LaunchScreen.xib */,
 				3957CE991AC74DFC008AEBE2 /* AppDelegate.h */,
 				3957CE9A1AC74DFC008AEBE2 /* AppDelegate.m */,
@@ -321,6 +334,7 @@
 				3957CEA41AC74DFC008AEBE2 /* Main.storyboard in Resources */,
 				3957CEA91AC74DFC008AEBE2 /* LaunchScreen.xib in Resources */,
 				3957CEA61AC74DFC008AEBE2 /* Images.xcassets in Resources */,
+				3970C9A21AC8A67B00062F64 /* LFTripDetailViewController.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -344,7 +358,9 @@
 				396CCBF41AC7C687005FBEE3 /* UIColor+LFExtensions.m in Sources */,
 				396CCBEB1AC7C3B6005FBEE3 /* LFTripsListViewController.m in Sources */,
 				396CCBF11AC7C430005FBEE3 /* UITableView+LFExtensions.m in Sources */,
+				3970C9A01AC8A27E00062F64 /* LFTripDetailViewController.m in Sources */,
 				396CCBFA1AC7CE92005FBEE3 /* NSNotification+NSError.m in Sources */,
+				3970C9AB1AC8A77000062F64 /* UIViewController+LFExtensions.m in Sources */,
 				396CCBF71AC7CD65005FBEE3 /* NSNotification+LFTrip.m in Sources */,
 				3957CED21AC752F6008AEBE2 /* NSError+LFExtensions.m in Sources */,
 				3970C9941AC85A2400062F64 /* LFTripCell.m in Sources */,

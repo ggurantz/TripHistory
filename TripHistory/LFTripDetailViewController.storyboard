@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7528.3" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="iLN-6o-rJz">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7518.3"/>
+    </dependencies>
+    <scenes>
+        <!--Trip Detail View Controller-->
+        <scene sceneID="3VI-lJ-hNo">
+            <objects>
+                <viewController id="iLN-6o-rJz" customClass="LFTripDetailViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="bbi-sh-m95"/>
+                        <viewControllerLayoutGuide type="bottom" id="vOU-mR-VEG"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="x5l-Pw-Wwz">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="s1H-Be-ErO">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <connections>
+                                    <outlet property="delegate" destination="iLN-6o-rJz" id="LMS-bC-jff"/>
+                                </connections>
+                            </mapView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="vOU-mR-VEG" firstAttribute="top" secondItem="s1H-Be-ErO" secondAttribute="bottom" id="IS0-Ps-WwU"/>
+                            <constraint firstItem="s1H-Be-ErO" firstAttribute="leading" secondItem="x5l-Pw-Wwz" secondAttribute="leading" id="MxI-4d-obi"/>
+                            <constraint firstItem="s1H-Be-ErO" firstAttribute="top" secondItem="x5l-Pw-Wwz" secondAttribute="top" id="pIv-f6-Qzp"/>
+                            <constraint firstAttribute="trailing" secondItem="s1H-Be-ErO" secondAttribute="trailing" id="tyQ-iA-c6E"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="mapView" destination="s1H-Be-ErO" id="5bb-jw-TuW"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Xh3-gQ-hSz" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1065" y="296"/>
+        </scene>
+    </scenes>
+</document>

@@ -16,6 +16,8 @@
 #import "LFTimeInterval.h"
 #import "NSDateFormatter+LFExtensions.h"
 #import "LFTripCell.h"
+#import "LFTripDetailViewController.h"
+#import "UIViewController+LFExtensions.h"
 
 @interface LFTripsListViewController ()
 
@@ -61,7 +63,16 @@
 
 - (void)viewWillAppear:(BOOL)animated
 {
+    [self.tableView reloadData];
     [self.loggingSwitch setOn:self.tripsManager.loggingEnabled];
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    
+    [self.tableView deselectRowAtIndexPath:[self.tableView indexPathForSelectedRow]
+                                  animated:true];
 }
 
 #pragma mark - LFTripsManager
@@ -151,6 +162,7 @@
         case LFTripStateActive:
             timeIntervalString = startTimeString;
             tripCell.carImageView.image = [UIImage imageNamed:@"CarIconActive"];
+            tripCell.carImageView.alpha = 1.0f;
             tripCell.chevronImageView.hidden = YES;
             tripCell.endLocationLabel.text = @"";
             break;
@@ -164,6 +176,7 @@
             
             tripCell.carImageView.image = [UIImage imageNamed:@"CarIcon"];
             tripCell.chevronImageView.hidden = NO;
+            tripCell.carImageView.alpha = 0.5f;
             
             [self updateAddresLabel:tripCell.endLocationLabel
                   activityIndicator:tripCell.endActivityIndicator
@@ -175,6 +188,15 @@
     tripCell.timeIntervalLabel.text = [NSString stringWithFormat:@"%@ (%zdmin)", timeIntervalString, minutes];
     
     return tripCell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    LFTrip *trip = [self.tripsManager.allTrips objectAtIndex:indexPath.row];
+    LFTripDetailViewController *viewController = [LFTripDetailViewController lf_createFromStoryboard];
+    viewController.trip = trip;
+    
+    [self.navigationController pushViewController:viewController animated:true];
 }
 
 @end
