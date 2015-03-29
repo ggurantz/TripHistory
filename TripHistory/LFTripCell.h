@@ -8,15 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
+@class LFTrip;
+@class LFTripsManager;
+
 @interface LFTripCell : UITableViewCell
 
-@property (nonatomic, readwrite, strong) IBOutlet UILabel *startLocationLabel;
-@property (nonatomic, readwrite, strong) IBOutlet UILabel *endLocationLabel;
-@property (nonatomic, readwrite, strong) IBOutlet UIActivityIndicatorView *startActivityIndicator;
-@property (nonatomic, readwrite, strong) IBOutlet UIActivityIndicatorView *endActivityIndicator;
-@property (nonatomic, readwrite, strong) IBOutlet UIImageView *chevronImageView;
-@property (nonatomic, readwrite, strong) IBOutlet UIImageView *carImageView;
-
-@property (nonatomic, readwrite, strong) IBOutlet UILabel *timeIntervalLabel;
+- (void)updateWithTrip:(LFTrip *)trip tripsManager:(LFTripsManager *)tripsManager;
 
 @end

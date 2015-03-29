@@ -22,11 +22,31 @@
                                     <outlet property="delegate" destination="iLN-6o-rJz" id="LMS-bC-jff"/>
                                 </connections>
                             </mapView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="J74-Hb-DBy">
+                                <rect key="frame" x="0.0" y="542" width="600" height="58"/>
+                                <subviews>
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="mT9-wE-1BE">
+                                        <rect key="frame" x="0.0" y="0.0" width="600" height="58"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </tableView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="mT9-wE-1BE" firstAttribute="top" secondItem="J74-Hb-DBy" secondAttribute="top" id="Een-uU-5dE"/>
+                                    <constraint firstAttribute="trailing" secondItem="mT9-wE-1BE" secondAttribute="trailing" id="JFS-Jd-Lj7"/>
+                                    <constraint firstItem="mT9-wE-1BE" firstAttribute="leading" secondItem="J74-Hb-DBy" secondAttribute="leading" id="LOz-TJ-yOB"/>
+                                    <constraint firstAttribute="height" constant="58" id="ZPU-YX-HGG"/>
+                                    <constraint firstAttribute="bottom" secondItem="mT9-wE-1BE" secondAttribute="bottom" id="qAD-jX-kPO"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="J74-Hb-DBy" firstAttribute="leading" secondItem="x5l-Pw-Wwz" secondAttribute="leading" id="5ZC-bC-8dk"/>
+                            <constraint firstItem="vOU-mR-VEG" firstAttribute="top" secondItem="J74-Hb-DBy" secondAttribute="bottom" id="EzT-YS-Rcn"/>
                             <constraint firstItem="vOU-mR-VEG" firstAttribute="top" secondItem="s1H-Be-ErO" secondAttribute="bottom" id="IS0-Ps-WwU"/>
                             <constraint firstItem="s1H-Be-ErO" firstAttribute="leading" secondItem="x5l-Pw-Wwz" secondAttribute="leading" id="MxI-4d-obi"/>
+                            <constraint firstAttribute="trailing" secondItem="J74-Hb-DBy" secondAttribute="trailing" id="WOc-uf-TXd"/>
                             <constraint firstItem="s1H-Be-ErO" firstAttribute="top" secondItem="x5l-Pw-Wwz" secondAttribute="top" id="pIv-f6-Qzp"/>
                             <constraint firstAttribute="trailing" secondItem="s1H-Be-ErO" secondAttribute="trailing" id="tyQ-iA-c6E"/>
                         </constraints>

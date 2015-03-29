@@ -155,46 +155,7 @@
                                                                          forIndexPath:indexPath];
     
     tripCell.layoutMargins = UIEdgeInsetsZero;
-    
-    [self updateAddresLabel:tripCell.startLocationLabel
-          activityIndicator:tripCell.startActivityIndicator
-                withAddress:[self.tripsManager startAddressForTrip:trip]];
-    
-    NSString *timeIntervalString = nil;
-    LFTimeInterval *timeInterval = trip.timeInterval;
-    NSInteger minutes = timeInterval.duration / 60;
-    
-    NSDateFormatter *timeDateFormatter = [LFTimeOfDayFormatter sharedFormatter];
-    NSString *startTimeString = [timeDateFormatter stringFromDate:timeInterval.startDate];
-    
-    switch (trip.state) {
-        case LFTripStateActive:
-            timeIntervalString = startTimeString;
-            tripCell.carImageView.image = [UIImage imageNamed:@"CarIconActive"];
-            tripCell.carImageView.alpha = 1.0f;
-            tripCell.chevronImageView.hidden = YES;
-            tripCell.endLocationLabel.text = @"";
-            break;
-            
-        case LFTripStateCompleted:
-        {
-            NSString *endTimeString = [timeDateFormatter stringFromDate:timeInterval.endDate];
-            timeIntervalString = [NSString stringWithFormat:@"%@-%@",
-                                  startTimeString,
-                                  endTimeString];
-            
-            tripCell.carImageView.image = [UIImage imageNamed:@"CarIcon"];
-            tripCell.chevronImageView.hidden = NO;
-            tripCell.carImageView.alpha = 0.5f;
-            
-            [self updateAddresLabel:tripCell.endLocationLabel
-                  activityIndicator:tripCell.endActivityIndicator
-                        withAddress:[self.tripsManager endAddressForTrip:trip]];
-        }
-            break;
-    }
-    
-    tripCell.timeIntervalLabel.text = [NSString stringWithFormat:@"%@ (%zdmin)", timeIntervalString, minutes];
+    [tripCell updateWithTrip:trip tripsManager:self.tripsManager];
     
     return tripCell;
 }

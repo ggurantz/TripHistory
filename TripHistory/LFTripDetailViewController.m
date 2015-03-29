@@ -13,8 +13,9 @@
 #import "LFTrip.h"
 #import "LFTripsManager.h"
 #import "NSNotification+LFTrip.h"
+#import "LFTripCell.h"
 
-@interface LFTripDetailViewController () <MKMapViewDelegate>
+@interface LFTripDetailViewController () <MKMapViewDelegate, UITableViewDataSource, UITableViewDelegate>
 
 @property (nonatomic, readwrite, strong) IBOutlet MKMapView *mapView;
 @property (nonatomic, readwrite, strong) NSNotificationCenter *notificationCenter;
@@ -206,6 +207,30 @@
         
         return pinAnnotation;
     }
+}
+
+#pragma mark - UITableView
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    return 1;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return 1;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    LFTrip *trip = [self.tripsManager.allTrips objectAtIndex:indexPath.row];
+    LFTripCell *tripCell = (LFTripCell *)[tableView dequeueReusableCellWithIdentifier:@"LFTripCell"
+                                                                         forIndexPath:indexPath];
+    
+    tripCell.layoutMargins = UIEdgeInsetsZero;
+    [tripCell updateWithTrip:trip tripsManager:self.tripsManager];
+    
+    return tripCell;
 }
 
 @end
