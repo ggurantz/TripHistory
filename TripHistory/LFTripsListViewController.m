@@ -14,10 +14,10 @@
 #import "NSNotification+LFTrip.h"
 #import "LFTrip.h"
 #import "LFTimeInterval.h"
-#import "NSDateFormatter+LFExtensions.h"
 #import "LFTripCell.h"
 #import "LFTripDetailViewController.h"
 #import "UIViewController+LFExtensions.h"
+#import "LFTimeOfDayFormatter.h"
 
 @interface LFTripsListViewController ()
 
@@ -164,7 +164,7 @@
     LFTimeInterval *timeInterval = trip.timeInterval;
     NSInteger minutes = timeInterval.duration / 60;
     
-    NSDateFormatter *timeDateFormatter = [NSDateFormatter lf_timeOfDayDateFormatter];
+    NSDateFormatter *timeDateFormatter = [LFTimeOfDayFormatter sharedFormatter];
     NSString *startTimeString = [timeDateFormatter stringFromDate:timeInterval.startDate];
     
     switch (trip.state) {
