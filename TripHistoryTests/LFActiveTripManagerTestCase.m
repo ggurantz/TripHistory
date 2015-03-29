@@ -10,7 +10,7 @@
 #import <XCTest/XCTest.h>
 #import <CoreLocation/CoreLocation.h>
 #import "LFActiveTripManager.h"
-#import <MKUnits/MKUnits.h>
+#import "LFTrip.h"
 
 @interface LFActiveTripManagerTestCase : XCTestCase<LFActiveTripManagerDelegate>
 
@@ -36,15 +36,33 @@
     self.authorizationError = nil;
 }
 
-- (CLLocation *)locationWithMPH:(CLLocationSpeed)mph timeStamp:(NSDate *)timeStamp
+- (void)addLocations:(NSArray *)locations
+{
+    [self.tripManager locationManager:nil didUpdateLocations:locations];
+}
+
+- (CLLocation *)locationWithSpeed:(CLLocationSpeed)speed timeStamp:(NSDate *)timeStamp
 {
     return [[CLLocation alloc] initWithCoordinate:CLLocationCoordinate2DMake(10.0, 10.0)
                                          altitude:10.0
                                horizontalAccuracy:10.0
                                  verticalAccuracy:10.0
                                            course:10.0
-                                            speed:mph
+                                            speed:speed
                                         timestamp:timeStamp];
+}
+
+- (void)assertNoTripsCreated
+{
+    XCTAssertNil(self.tripManager.trip);
+    XCTAssertEqual(self.trips.count, 0);
+}
+
+- (void)assertTripIsCreatedWithLocations:(NSArray *)locations
+{
+    XCTAssertNotNil(self.tripManager.trip);
+    XCTAssertEqual(@[self.tripManager.trip], self.trips);
+    XCTAssertEqual(self.tripManager.trip.locations, locations);
 }
 
 #pragma mark - LFActiveTripManagerDelegate
@@ -71,20 +89,73 @@
 
 #pragma mark - Tests
 
-- (void)testThatATripGetsCreated
+- (void)testThatNoTripExistsWithNoLocationUpdates
 {
-    CLLocation *location = [self locationWithMPH:10.0 timeStamp:[NSDate date]];
-
+    [self assertNoTripsCreated];
 }
 
-// Test that with no trip and then a 10 mph a trip gets started
-// Test that with no trip and 5 mph, no trip is started
-// Test that with a trip, and then a new piece of 10 mph speed, an update is sent, and no new trip is created
-// Test that with a trip, and a minute of no activity, the trip ends
-// Test that with a trip, and some mild activity < 10mph, the trip continues
+- (void)testThatNoTripGetsCreatedWithLowSpeed
+{
+    NSArray *locations = @[[self locationWithSpeed:kLFActiveTripManagerTripStartSpeed/2.0
+                                       timeStamp:[NSDate date]]];
+    [self addLocations:locations];
+    [self assertNoTripsCreated];
+}
 
-// Questions: minimal movement? Does CLLocationManager continually update us?? Or does it wait? Do I need to
-// wait for a minute of no responses from CLLocationManager? No!
+- (void)testThatATripGetsCreatedWithEnoughSpeed
+{
+    NSArray *locations = @[[self locationWithSpeed:kLFActiveTripManagerTripStartSpeed
+                                       timeStamp:[NSDate date]]];
+    [self addLocations:locations];
+    [self assertTripIsCreatedWithLocations:locations];
+}
+
+- (void)testThatAnUpdateWithLowSpeedDoesNotCreateANewTrip
+{
+    NSArray *locations = @[
+                           [self locationWithSpeed:kLFActiveTripManagerTripStartSpeed
+                                         timeStamp:[NSDate date]],
+                           [self locationWithSpeed:kLFActiveTripManagerMinimumActivitySpeed
+                                         timeStamp:[NSDate date]]
+                           ];
+    [self addLocations:@[locations[0]]];
+    [self addLocations:@[locations[1]]];
+    
+    [self assertTripIsCreatedWithLocations:locations];
+}
+
+- (void)testThatAnUpdateWithHighSpeedDoesNotCreateANewTrip
+{
+    NSArray *locations = @[
+                           [self locationWithSpeed:kLFActiveTripManagerTripStartSpeed
+                                         timeStamp:[NSDate date]],
+                           [self locationWithSpeed:kLFActiveTripManagerTripStartSpeed
+                                         timeStamp:[NSDate date]]
+                           ];
+    [self addLocations:@[locations[0]]];
+    [self addLocations:@[locations[1]]];
+    
+    XCTAssertEqual(self.updates, 1);
+    XCTAssertEqual(self.completions, 0);
+    XCTAssertEqual(self.tripManager.trip.state, LFTripStateActive);
+    [self assertTripIsCreatedWithLocations:locations];
+}
+
+- (void)testThatATripCompletesAfterAMinuteOfInactivity
+{
+    CLLocation *startLocation = [self locationWithSpeed:kLFActiveTripManagerTripStartSpeed
+                                              timeStamp:[NSDate date]];
+    CLLocation *endLocation = [self locationWithSpeed:kLFActiveTripManagerMinimumActivitySpeed
+                                            timeStamp:[startLocation.timestamp dateByAddingTimeInterval:kLFActiveTripManagerTripEndIdleTimeInterval]];
+    
+    
+    NSArray *locations = @[startLocation, endLocation];
+    [self addLocations:locations];
+    
+    XCTAssertEqual(self.completions, 1);
+    XCTAssertEqual(self.tripManager.trip.state, LFTripStateCompleted);
+    [self assertTripIsCreatedWithLocations:@[startLocation]];
+}
 
 // Test batch update messages resolving?
 

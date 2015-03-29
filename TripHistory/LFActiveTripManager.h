@@ -7,11 +7,17 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <CoreLocation/CoreLocation.h>
+#import "LFLocationManager.h"
 
 @class LFTrip;
 @protocol LFActiveTripManagerDelegate;
 
-@interface LFActiveTripManager : NSObject
+extern CLLocationSpeed const kLFActiveTripManagerTripStartSpeed;
+extern CLLocationSpeed const kLFActiveTripManagerMinimumActivitySpeed;
+extern NSTimeInterval const kLFActiveTripManagerTripEndIdleTimeInterval;
+
+@interface LFActiveTripManager : NSObject<LFLocationManagerDelegate>
 
 - (instancetype)initWithDelegate:(id<LFActiveTripManagerDelegate>)delegate;
 

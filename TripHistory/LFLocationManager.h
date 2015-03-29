@@ -18,6 +18,7 @@
 
 @protocol LFLocationManagerDelegate <NSObject>
 
+- (void)locationManager:(LFLocationManager *)locationManager didUpdateLocations:(NSArray *)locations;
 - (void)locationManager:(LFLocationManager *)locationManager didFailAuthorizationWithError:(NSError *)error;
 
 @end

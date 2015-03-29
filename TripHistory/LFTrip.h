@@ -8,6 +8,14 @@
 
 #import <Foundation/Foundation.h>
 
+typedef NS_ENUM(NSInteger, LFTripState) {
+    LFTripStateActive,
+    LFTripStateCompleted
+};
+
 @interface LFTrip : NSObject
+
+@property (nonatomic, readonly, strong) NSArray *locations;
+@property (nonatomic, readonly, assign) LFTripState state;
 
 @end

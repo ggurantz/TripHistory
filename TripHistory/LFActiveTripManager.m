@@ -9,7 +9,11 @@
 #import "LFActiveTripManager.h"
 #import "LFLocationManager.h"
 
-@interface LFActiveTripManager () <LFLocationManagerDelegate>
+CLLocationSpeed const kLFActiveTripManagerTripStartSpeed = 4.4704f; // 10 mph
+CLLocationSpeed const kLFActiveTripManagerMinimumActivitySpeed = 0.44704f; // 1 mph
+NSTimeInterval const kLFActiveTripManagerTripEndIdleTimeInterval = 60.0f; // 1 minute
+
+@interface LFActiveTripManager ()
 
 @property (nonatomic, readwrite, weak) id<LFActiveTripManagerDelegate> delegate;
 
@@ -28,6 +32,11 @@
 }
 
 #pragma mark - LFLocationManagerDelegate
+
+- (void)locationManager:(LFLocationManager *)locationManager didUpdateLocations:(NSArray *)locations
+{
+    
+}
 
 - (void)locationManager:(LFLocationManager *)locationManager didFailAuthorizationWithError:(NSError *)error
 {
