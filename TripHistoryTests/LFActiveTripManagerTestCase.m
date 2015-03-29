@@ -186,6 +186,17 @@
     XCTAssertEqual([self.trips[1] state], LFTripStateActive);
 }
 
-// Test batch update messages resolving?
+- (void)testThatItCompletesATripWhenTurningLoggingOff
+{
+    NSArray *locations = @[[self locationWithSpeed:kLFActiveTripManagerTripStartSpeed
+                                         timeStamp:[NSDate date]]];
+    [self addLocations:locations];
+    XCTAssertEqual(self.completions, 0);
+    
+    [self.tripManager stopUpdatingLocation];
+    
+    XCTAssertEqual(self.completions, 1);
+    XCTAssertEqual(self.trips.count, 1);
+}
 
 @end

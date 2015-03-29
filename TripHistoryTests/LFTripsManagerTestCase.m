@@ -75,14 +75,4 @@
     XCTAssertFalse(self.tripsManager.loggingEnabled);
 }
 
-- (void)testThatItCompletesATripWhenTurningLoggingOff
-{
-    self.tripsManager.loggingEnabled = YES;
-    [self createATrip];
-    self.tripsManager.loggingEnabled = NO;
-    
-    XCTAssertEqual(self.tripsManager.allTrips.count, 1);
-    XCTAssertEqual([self.tripsManager.allTrips.lastObject state], LFTripStateCompleted);
-}
-
 @end
