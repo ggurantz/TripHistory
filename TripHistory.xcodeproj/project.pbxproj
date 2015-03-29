@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		394D74081AC77ABE00B0FFEB /* LFActiveTripTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = 394D74071AC77ABE00B0FFEB /* LFActiveTripTestCase.m */; };
 		394D740B1AC77B4500B0FFEB /* LFActiveTrip.m in Sources */ = {isa = PBXBuildFile; fileRef = 394D740A1AC77B4500B0FFEB /* LFActiveTrip.m */; };
+		394D740E1AC7A18100B0FFEB /* LFTripsManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 394D740D1AC7A18100B0FFEB /* LFTripsManager.m */; };
+		394D74101AC7A30000B0FFEB /* LFTripsManagerTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = 394D740F1AC7A30000B0FFEB /* LFTripsManagerTestCase.m */; };
 		3957CE981AC74DFC008AEBE2 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3957CE971AC74DFC008AEBE2 /* main.m */; };
 		3957CE9B1AC74DFC008AEBE2 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3957CE9A1AC74DFC008AEBE2 /* AppDelegate.m */; };
 		3957CE9E1AC74DFC008AEBE2 /* TripHistory.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3957CE9C1AC74DFC008AEBE2 /* TripHistory.xcdatamodeld */; };
@@ -40,6 +42,10 @@
 		394D74071AC77ABE00B0FFEB /* LFActiveTripTestCase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LFActiveTripTestCase.m; sourceTree = "<group>"; };
 		394D74091AC77B4500B0FFEB /* LFActiveTrip.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LFActiveTrip.h; sourceTree = "<group>"; };
 		394D740A1AC77B4500B0FFEB /* LFActiveTrip.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LFActiveTrip.m; sourceTree = "<group>"; };
+		394D740C1AC7A18100B0FFEB /* LFTripsManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LFTripsManager.h; sourceTree = "<group>"; };
+		394D740D1AC7A18100B0FFEB /* LFTripsManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LFTripsManager.m; sourceTree = "<group>"; };
+		394D740F1AC7A30000B0FFEB /* LFTripsManagerTestCase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LFTripsManagerTestCase.m; sourceTree = "<group>"; };
+		394D74111AC7BC6800B0FFEB /* LFTripsManager+Protected.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "LFTripsManager+Protected.h"; sourceTree = "<group>"; };
 		3957CE921AC74DFC008AEBE2 /* TripHistory.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TripHistory.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3957CE961AC74DFC008AEBE2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3957CE971AC74DFC008AEBE2 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -115,6 +121,9 @@
 				3957CE9A1AC74DFC008AEBE2 /* AppDelegate.m */,
 				3957CE9F1AC74DFC008AEBE2 /* ViewController.h */,
 				3957CEA01AC74DFC008AEBE2 /* ViewController.m */,
+				394D740C1AC7A18100B0FFEB /* LFTripsManager.h */,
+				394D74111AC7BC6800B0FFEB /* LFTripsManager+Protected.h */,
+				394D740D1AC7A18100B0FFEB /* LFTripsManager.m */,
 				3957CED51AC758F7008AEBE2 /* LFTrip.h */,
 				3957CED61AC758F7008AEBE2 /* LFTrip.m */,
 				394D74091AC77B4500B0FFEB /* LFActiveTrip.h */,
@@ -147,6 +156,7 @@
 				399C7DA11AC76C3A007F2EE0 /* LFActiveTripManagerTestCase.m */,
 				399C7DA21AC76C3A007F2EE0 /* LFLocationManagerTestCase.m */,
 				394D74071AC77ABE00B0FFEB /* LFActiveTripTestCase.m */,
+				394D740F1AC7A30000B0FFEB /* LFTripsManagerTestCase.m */,
 				3957CEB21AC74DFC008AEBE2 /* Supporting Files */,
 			);
 			path = TripHistoryTests;
@@ -280,6 +290,7 @@
 				3957CE9E1AC74DFC008AEBE2 /* TripHistory.xcdatamodeld in Sources */,
 				3957CEA11AC74DFC008AEBE2 /* ViewController.m in Sources */,
 				3957CEC01AC74EA4008AEBE2 /* LFActiveTripManager.m in Sources */,
+				394D740E1AC7A18100B0FFEB /* LFTripsManager.m in Sources */,
 				3957CED71AC758F7008AEBE2 /* LFTrip.m in Sources */,
 				3957CE981AC74DFC008AEBE2 /* main.m in Sources */,
 				394D740B1AC77B4500B0FFEB /* LFActiveTrip.m in Sources */,
@@ -292,6 +303,7 @@
 			files = (
 				399C7DA41AC76C3A007F2EE0 /* LFLocationManagerTestCase.m in Sources */,
 				394D74081AC77ABE00B0FFEB /* LFActiveTripTestCase.m in Sources */,
+				394D74101AC7A30000B0FFEB /* LFTripsManagerTestCase.m in Sources */,
 				399C7DA31AC76C3A007F2EE0 /* LFActiveTripManagerTestCase.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

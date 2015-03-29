@@ -17,6 +17,7 @@ NSTimeInterval const kLFActiveTripManagerTripEndIdleTimeInterval = 60.0f; // 1 m
 @interface LFActiveTripManager ()
 
 @property (nonatomic, readwrite, weak) id<LFActiveTripManagerDelegate> delegate;
+@property (nonatomic, readwrite, strong) LFLocationManager *locationManager;
 @property (nonatomic, readwrite, strong) LFActiveTrip *activeTrip;
 
 @end
@@ -29,6 +30,7 @@ NSTimeInterval const kLFActiveTripManagerTripEndIdleTimeInterval = 60.0f; // 1 m
     if (self)
     {
         self.delegate = delegate;
+        self.locationManager = [[LFLocationManager alloc] initWithDelegate:self];
     }
     return self;
 }
