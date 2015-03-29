@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  UIColor+LFExtensions.h
 //  TripHistory
 //
 //  Created by Gilad Gurantz on 3/28/15.
@@ -8,8 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
+@interface UIColor (LFExtensions)
 
++ (UIColor *)lf_cellTitleColor;
++ (UIColor *)lf_lyftTitleColor;
 
 @end
-

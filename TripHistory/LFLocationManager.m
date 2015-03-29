@@ -19,6 +19,12 @@
 
 @implementation LFLocationManager
 
+- (void)dealloc
+{
+    [_locationManager stopUpdatingLocation];
+    [_locationManager setDelegate:nil];
+}
+
 - (instancetype)init
 {
     NSAssert(NO, @"Use -initWithDelegate");
@@ -80,7 +86,7 @@
 
 - (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations
 {
-    
+    [self.delegate locationManager:self didUpdateLocations:locations];
 }
 
 @end

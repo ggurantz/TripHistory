@@ -14,7 +14,6 @@
 		3957CE981AC74DFC008AEBE2 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3957CE971AC74DFC008AEBE2 /* main.m */; };
 		3957CE9B1AC74DFC008AEBE2 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3957CE9A1AC74DFC008AEBE2 /* AppDelegate.m */; };
 		3957CE9E1AC74DFC008AEBE2 /* TripHistory.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3957CE9C1AC74DFC008AEBE2 /* TripHistory.xcdatamodeld */; };
-		3957CEA11AC74DFC008AEBE2 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3957CEA01AC74DFC008AEBE2 /* ViewController.m */; };
 		3957CEA41AC74DFC008AEBE2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3957CEA21AC74DFC008AEBE2 /* Main.storyboard */; };
 		3957CEA61AC74DFC008AEBE2 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3957CEA51AC74DFC008AEBE2 /* Images.xcassets */; };
 		3957CEA91AC74DFC008AEBE2 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3957CEA71AC74DFC008AEBE2 /* LaunchScreen.xib */; };
@@ -24,6 +23,9 @@
 		3957CED21AC752F6008AEBE2 /* NSError+LFExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 3957CED11AC752F6008AEBE2 /* NSError+LFExtensions.m */; };
 		3957CED41AC755AA008AEBE2 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3957CED31AC755AA008AEBE2 /* MapKit.framework */; };
 		3957CED71AC758F7008AEBE2 /* LFTrip.m in Sources */ = {isa = PBXBuildFile; fileRef = 3957CED61AC758F7008AEBE2 /* LFTrip.m */; };
+		396CCBEB1AC7C3B6005FBEE3 /* LFTripsListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 396CCBEA1AC7C3B6005FBEE3 /* LFTripsListViewController.m */; };
+		396CCBF11AC7C430005FBEE3 /* UITableView+LFExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 396CCBF01AC7C430005FBEE3 /* UITableView+LFExtensions.m */; };
+		396CCBF41AC7C687005FBEE3 /* UIColor+LFExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 396CCBF31AC7C687005FBEE3 /* UIColor+LFExtensions.m */; };
 		399C7DA31AC76C3A007F2EE0 /* LFActiveTripManagerTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = 399C7DA11AC76C3A007F2EE0 /* LFActiveTripManagerTestCase.m */; };
 		399C7DA41AC76C3A007F2EE0 /* LFLocationManagerTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = 399C7DA21AC76C3A007F2EE0 /* LFLocationManagerTestCase.m */; };
 /* End PBXBuildFile section */
@@ -52,8 +54,6 @@
 		3957CE991AC74DFC008AEBE2 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		3957CE9A1AC74DFC008AEBE2 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		3957CE9D1AC74DFC008AEBE2 /* TripHistory.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TripHistory.xcdatamodel; sourceTree = "<group>"; };
-		3957CE9F1AC74DFC008AEBE2 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		3957CEA01AC74DFC008AEBE2 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		3957CEA31AC74DFC008AEBE2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		3957CEA51AC74DFC008AEBE2 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		3957CEA81AC74DFC008AEBE2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
@@ -69,6 +69,12 @@
 		3957CED31AC755AA008AEBE2 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		3957CED51AC758F7008AEBE2 /* LFTrip.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LFTrip.h; sourceTree = "<group>"; };
 		3957CED61AC758F7008AEBE2 /* LFTrip.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LFTrip.m; sourceTree = "<group>"; };
+		396CCBE91AC7C3B6005FBEE3 /* LFTripsListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LFTripsListViewController.h; sourceTree = "<group>"; };
+		396CCBEA1AC7C3B6005FBEE3 /* LFTripsListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LFTripsListViewController.m; sourceTree = "<group>"; };
+		396CCBEF1AC7C430005FBEE3 /* UITableView+LFExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableView+LFExtensions.h"; sourceTree = "<group>"; };
+		396CCBF01AC7C430005FBEE3 /* UITableView+LFExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableView+LFExtensions.m"; sourceTree = "<group>"; };
+		396CCBF21AC7C687005FBEE3 /* UIColor+LFExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+LFExtensions.h"; sourceTree = "<group>"; };
+		396CCBF31AC7C687005FBEE3 /* UIColor+LFExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+LFExtensions.m"; sourceTree = "<group>"; };
 		399C7DA11AC76C3A007F2EE0 /* LFActiveTripManagerTestCase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LFActiveTripManagerTestCase.m; sourceTree = "<group>"; };
 		399C7DA21AC76C3A007F2EE0 /* LFLocationManagerTestCase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LFLocationManagerTestCase.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -119,8 +125,8 @@
 				3957CEC91AC75076008AEBE2 /* Extensions */,
 				3957CE991AC74DFC008AEBE2 /* AppDelegate.h */,
 				3957CE9A1AC74DFC008AEBE2 /* AppDelegate.m */,
-				3957CE9F1AC74DFC008AEBE2 /* ViewController.h */,
-				3957CEA01AC74DFC008AEBE2 /* ViewController.m */,
+				396CCBE91AC7C3B6005FBEE3 /* LFTripsListViewController.h */,
+				396CCBEA1AC7C3B6005FBEE3 /* LFTripsListViewController.m */,
 				394D740C1AC7A18100B0FFEB /* LFTripsManager.h */,
 				394D74111AC7BC6800B0FFEB /* LFTripsManager+Protected.h */,
 				394D740D1AC7A18100B0FFEB /* LFTripsManager.m */,
@@ -175,6 +181,10 @@
 			children = (
 				3957CED01AC752F6008AEBE2 /* NSError+LFExtensions.h */,
 				3957CED11AC752F6008AEBE2 /* NSError+LFExtensions.m */,
+				396CCBEF1AC7C430005FBEE3 /* UITableView+LFExtensions.h */,
+				396CCBF01AC7C430005FBEE3 /* UITableView+LFExtensions.m */,
+				396CCBF21AC7C687005FBEE3 /* UIColor+LFExtensions.h */,
+				396CCBF31AC7C687005FBEE3 /* UIColor+LFExtensions.m */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -286,9 +296,11 @@
 			files = (
 				3957CEC31AC74EC4008AEBE2 /* LFLocationManager.m in Sources */,
 				3957CE9B1AC74DFC008AEBE2 /* AppDelegate.m in Sources */,
+				396CCBF41AC7C687005FBEE3 /* UIColor+LFExtensions.m in Sources */,
+				396CCBEB1AC7C3B6005FBEE3 /* LFTripsListViewController.m in Sources */,
+				396CCBF11AC7C430005FBEE3 /* UITableView+LFExtensions.m in Sources */,
 				3957CED21AC752F6008AEBE2 /* NSError+LFExtensions.m in Sources */,
 				3957CE9E1AC74DFC008AEBE2 /* TripHistory.xcdatamodeld in Sources */,
-				3957CEA11AC74DFC008AEBE2 /* ViewController.m in Sources */,
 				3957CEC01AC74EA4008AEBE2 /* LFActiveTripManager.m in Sources */,
 				394D740E1AC7A18100B0FFEB /* LFTripsManager.m in Sources */,
 				3957CED71AC758F7008AEBE2 /* LFTrip.m in Sources */,
