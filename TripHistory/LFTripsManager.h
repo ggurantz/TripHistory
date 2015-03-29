@@ -20,4 +20,6 @@
 @property (readonly) NSArray *allTrips;
 - (void)removeAllTrips;
 
+@property (nonatomic, readwrite, assign) BOOL loggingEnabled;
+
 @end

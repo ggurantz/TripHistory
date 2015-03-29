@@ -9,7 +9,7 @@
 #import "LFTripsManager.h"
 #import "LFActiveTripManager.h"
 
-@interface LFTripsManager ()
+@interface LFTripsManager () <LFActiveTripManagerDelegate>
 
 @property (nonatomic, readwrite, strong) NSMutableArray *trips;
 @property (nonatomic, readwrite, strong) LFActiveTripManager *activeTripManager;
@@ -19,11 +19,6 @@
 @implementation LFTripsManager
 
 - (instancetype)init
-{
-    return self;
-}
-
-- (instancetype)initWithActiveTripManager:(LFActiveTripManager *)activeTripManager
 {
     self = [super init];
     if (self) {
@@ -40,6 +35,48 @@
 - (void)removeAllTrips
 {
     [self.trips removeAllObjects];
+}
+
+- (BOOL)loggingEnabled
+{
+    return self.activeTripManager != nil;
+}
+
+- (void)setLoggingEnabled:(BOOL)loggingEnabled
+{
+    if (loggingEnabled != self.loggingEnabled)
+    {
+        if (loggingEnabled)
+        {
+            self.activeTripManager = [[LFActiveTripManager alloc] initWithDelegate:self];
+        }
+        else
+        {
+            self.activeTripManager = nil;
+        }
+    }
+}
+
+#pragma mark - LFActiveTripManagerDelegate
+
+- (void)activeTripManager:(LFActiveTripManager *)tripManager didBeginNewTrip:(LFTrip *)trip
+{
+    [self.trips insertObject:trip atIndex:0];
+}
+
+- (void)activeTripManager:(LFActiveTripManager *)tripManager didUpdateTrip:(LFTrip *)trip
+{
+    
+}
+
+- (void)activeTripManager:(LFActiveTripManager *)tripManager didCompleteTrip:(LFTrip *)trip
+{
+    
+}
+
+- (void)activeTripManager:(LFActiveTripManager *)tripManager didFailAuthorizationWithError:(NSError *)error
+{
+    self.loggingEnabled = NO;
 }
 
 @end
