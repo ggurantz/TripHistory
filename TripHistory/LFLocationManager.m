@@ -81,7 +81,10 @@
 
 - (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error
 {
-    [self handleAuthorizationError:error];
+    if (error.code == kCLErrorDenied)
+    {
+        [self handleAuthorizationError:error];
+    }
 }
 
 - (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations
