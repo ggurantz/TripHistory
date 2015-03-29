@@ -54,8 +54,7 @@ NSTimeInterval const kLFActiveTripManagerTripEndIdleTimeInterval = 60.0f; // 1 m
 {
     if (location.speed >= kLFActiveTripManagerTripStartSpeed)
     {
-        self.activeTrip = [[LFActiveTrip alloc] init];
-        [self.activeTrip addLocations:@[location]];
+        self.activeTrip = [[LFActiveTrip alloc] initWithLocations:@[location]];
         [self.delegate activeTripManager:self didBeginNewTrip:self.activeTrip];
     }
 }

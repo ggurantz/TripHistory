@@ -17,11 +17,11 @@
 
 @implementation LFActiveTrip
 
-- (instancetype)init
+- (instancetype)initWithLocations:(NSArray *)locations
 {
-    self = [super init];
+    self = [super initWithLocations:locations];
     if (self) {
-        self.mutableLocations = [NSMutableArray arrayWithArray:self.locations];
+        self.mutableLocations = [NSMutableArray array];
     }
     return self;
 }
@@ -44,7 +44,7 @@
 
 - (NSArray *)locations
 {
-    return self.mutableLocations;
+    return [[super locations] arrayByAddingObjectsFromArray:self.mutableLocations];
 }
 
 @end

@@ -18,11 +18,16 @@
 
 @implementation LFTrip
 
+- (instancetype)init
+{
+    return [self initWithLocations:nil];
+}
+
 - (instancetype)initWithLocations:(NSArray *)locations
 {
     NSAssert(locations.count > 0, @"A trip must have at least one location");
     
-    self = [self init];
+    self = [super init];
     if (self)
     {
         self.locations = locations;

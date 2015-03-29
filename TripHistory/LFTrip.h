@@ -18,7 +18,6 @@ typedef NS_ENUM(NSInteger, LFTripState) {
 
 @interface LFTrip : NSObject
 
-- (instancetype)init;
 - (instancetype)initWithLocations:(NSArray *)locations;
 
 @property (nonatomic, readonly, strong) NSArray *locations;

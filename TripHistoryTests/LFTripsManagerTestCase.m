@@ -39,9 +39,10 @@
 
 - (void)createATrip
 {
+    NSArray *locations = @[[[CLLocation alloc] init]];
     LFActiveTripManager *activeTripManager = self.tripsManager.activeTripManager;
     [[activeTripManager delegate] activeTripManager:activeTripManager
-                                    didBeginNewTrip:[[LFActiveTrip alloc] init]];
+                                    didBeginNewTrip:[[LFActiveTrip alloc] initWithLocations:locations]];
 }
 
 - (void)testThatItCreatesATrip

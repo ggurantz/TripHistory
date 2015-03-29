@@ -25,7 +25,7 @@
 }
 
 - (void)testThatItAssertsIfTryingToAddToACompletedTrip {
-    LFActiveTrip *activeTrip = [[LFActiveTrip alloc] init];
+    LFActiveTrip *activeTrip = [[LFActiveTrip alloc] initWithLocations:[self randomLocations]];
     
     [activeTrip updateState:LFTripStateActive];
     
@@ -34,6 +34,18 @@
     [activeTrip updateState:LFTripStateCompleted];
     
     XCTAssertThrows([activeTrip addLocations:[self randomLocations]]);
+}
+
+- (void)testThatItIncludesBothExistingAndAddedLocations
+{
+    NSArray *originalLocations = [self randomLocations];
+    LFActiveTrip *activeTrip = [[LFActiveTrip alloc] initWithLocations:originalLocations];
+    
+    NSArray *moreLocations = [self randomLocations];
+    [activeTrip addLocations:moreLocations];
+    
+    NSArray *combinedArray = [originalLocations arrayByAddingObjectsFromArray:moreLocations];
+    XCTAssertTrue([activeTrip.locations isEqualToArray:combinedArray]);
 }
 
 @end
