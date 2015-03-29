@@ -1,5 +1,5 @@
 //
-//  THTrip.m
+//  LFActiveTrip.h
 //  TripHistory
 //
 //  Created by Gilad Gurantz on 3/28/15.
@@ -8,11 +8,9 @@
 
 #import "LFTrip.h"
 
-@implementation LFTrip
+@interface LFActiveTrip : LFTrip
 
-- (LFTripState)state
-{
-    return LFTripStateCompleted;
-}
+- (void)updateState:(LFTripState)state;
+- (void)addLocations:(NSArray *)locations;
 
 @end

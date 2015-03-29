@@ -16,6 +16,6 @@ typedef NS_ENUM(NSInteger, LFTripState) {
 @interface LFTrip : NSObject
 
 @property (nonatomic, readonly, strong) NSArray *locations;
-@property (nonatomic, readonly, assign) LFTripState state;
+@property (readonly) LFTripState state;
 
 @end

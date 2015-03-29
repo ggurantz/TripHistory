@@ -22,7 +22,7 @@ extern NSTimeInterval const kLFActiveTripManagerTripEndIdleTimeInterval;
 - (instancetype)initWithDelegate:(id<LFActiveTripManagerDelegate>)delegate;
 
 // May be nil if no active trip
-@property (nonatomic, readonly, strong) LFTrip *trip;
+@property (readonly) LFTrip *trip;
 
 @end
 
