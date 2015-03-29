@@ -13,6 +13,41 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        <view key="tableHeaderView" contentMode="scaleToFill" id="YtY-DN-Esd">
+                            <rect key="frame" x="0.0" y="64" width="600" height="72"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Trip Logging" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aeO-bN-CeC">
+                                    <rect key="frame" x="16" y="25" width="98" height="21"/>
+                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                    <color key="textColor" red="0.40000000000000002" green="0.39215686274509803" blue="0.38039215686274508" alpha="1" colorSpace="calibratedRGB"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lbJ-cb-Lwi">
+                                    <rect key="frame" x="535" y="20" width="51" height="31"/>
+                                    <connections>
+                                        <action selector="loggingEnabledButtonValueChanged:" destination="oYd-7t-dTg" eventType="valueChanged" id="0Jt-xR-kKT"/>
+                                    </connections>
+                                </switch>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Rv3-Le-fXf">
+                                    <rect key="frame" x="0.0" y="71" width="600" height="1"/>
+                                    <color key="backgroundColor" red="0.90196079015731812" green="0.90196079015731812" blue="0.90196079015731812" alpha="1" colorSpace="calibratedRGB"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="1" id="qdq-0Z-PzT"/>
+                                    </constraints>
+                                </view>
+                            </subviews>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstAttribute="trailing" secondItem="lbJ-cb-Lwi" secondAttribute="trailing" constant="16" id="TdG-Ln-aYO"/>
+                                <constraint firstAttribute="trailing" secondItem="Rv3-Le-fXf" secondAttribute="trailing" id="Uli-1M-WRF"/>
+                                <constraint firstAttribute="centerY" secondItem="aeO-bN-CeC" secondAttribute="centerY" constant="0.5" id="ZBm-9q-LxO"/>
+                                <constraint firstItem="aeO-bN-CeC" firstAttribute="centerY" secondItem="lbJ-cb-Lwi" secondAttribute="centerY" id="bAa-d9-xSu"/>
+                                <constraint firstItem="Rv3-Le-fXf" firstAttribute="leading" secondItem="YtY-DN-Esd" secondAttribute="leading" id="jJf-O3-uEz"/>
+                                <constraint firstAttribute="bottom" secondItem="Rv3-Le-fXf" secondAttribute="bottom" id="mmh-HT-RPV"/>
+                                <constraint firstItem="aeO-bN-CeC" firstAttribute="leading" secondItem="YtY-DN-Esd" secondAttribute="leading" constant="16" id="uCl-g8-6w2"/>
+                            </constraints>
+                        </view>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="pCv-Ke-PdM">
                                 <autoresizingMask key="autoresizingMask"/>
@@ -27,6 +62,9 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Root View Controller" id="k5y-f6-kJc"/>
+                    <connections>
+                        <outlet property="loggingSwitch" destination="lbJ-cb-Lwi" id="Jr8-r4-rrB"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Xi4-gp-Ejf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

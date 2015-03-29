@@ -20,6 +20,7 @@
 
 @property (nonatomic, readwrite, strong) LFTripsManager *tripsManager;
 @property (nonatomic, readwrite, strong) NSNotificationCenter *notificationCenter;
+@property (nonatomic, readwrite, strong) IBOutlet UISwitch *loggingSwitch;
 
 @end
 
@@ -53,35 +54,37 @@
                                   object:self.tripsManager];
     
     self.tableView.layoutMargins = UIEdgeInsetsZero;
+    self.loggingSwitch.onTintColor = [UIColor lf_lyftTitleColor];
+    self.navigationItem.titleView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"Logo"]];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (void)viewWillAppear:(BOOL)animated
+{
+    [self.loggingSwitch setOn:self.tripsManager.loggingEnabled];
 }
 
 #pragma mark - LFTripsManager
 
-- (void)loggingEnabledButtonValueChanged:(UISwitch *)loggingSwitch
+- (IBAction)loggingEnabledButtonValueChanged:(UISwitch *)loggingSwitch
 {
     self.tripsManager.loggingEnabled = loggingSwitch.isOn;
 }
 
 - (void)tripsManagerDidBeginNewTrip:(NSNotification *)notification
 {
-    [self.tableView insertRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:0 inSection:1]]
+    [self.tableView insertRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:0 inSection:0]]
                           withRowAnimation:UITableViewRowAnimationTop];
 }
 
 - (void)tripsManagerDidUpdateTrip:(NSNotification *)notification
 {
-    [self.tableView reloadRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:0 inSection:1]]
+    [self.tableView reloadRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:0 inSection:0]]
                           withRowAnimation:UITableViewRowAnimationNone];
 }
 
 - (void)tripsManagerDidCompleteTrip:(NSNotification *)notification
 {
-    [self.tableView reloadRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:0 inSection:1]]
+    [self.tableView reloadRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:0 inSection:0]]
                           withRowAnimation:UITableViewRowAnimationFade];
 }
 
@@ -101,108 +104,54 @@
 #pragma mark - UITableView
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 2;
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    switch (section)
-    {
-        case 0: return 1;
-        case 1: return self.tripsManager.allTrips.count;
-        default: return 0;
-    }
+    return self.tripsManager.allTrips.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    switch (indexPath.section)
-    {
-        case 0:
+    LFTrip *trip = [self.tripsManager.allTrips objectAtIndex:indexPath.row];
+    UITableViewCell *tripCell = [tableView lf_dequeueOrCreateCellWithStyle:UITableViewCellStyleSubtitle
+                                                           reuseIdentifier:@"TripCell"];
+    
+    tripCell.layoutMargins = UIEdgeInsetsZero;
+    
+    tripCell.imageView.image = [UIImage imageNamed:@"CarIcon"];
+    
+    tripCell.textLabel.textColor = [UIColor lf_cellTitleColor];
+    tripCell.textLabel.text = @"Title";
+    tripCell.textLabel.font = [UIFont boldSystemFontOfSize:15.0f];
+    
+    NSString *timeIntervalString = nil;
+    LFTimeInterval *timeInterval = trip.timeInterval;
+    NSInteger minutes = timeInterval.duration / 60;
+    
+    NSDateFormatter *timeDateFormatter = [NSDateFormatter lf_timeOfDayDateFormatter];
+    NSString *startTimeString = [timeDateFormatter stringFromDate:timeInterval.startDate];
+    
+    switch (trip.state) {
+        case LFTripStateActive:
+            timeIntervalString = startTimeString;
+            break;
+            
+        case LFTripStateCompleted:
         {
-            UITableViewCell *switchCell = [tableView lf_dequeueOrCreateCellWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"SwitchCell"];
-            
-            switchCell.layoutMargins = UIEdgeInsetsZero;
-            
-            UISwitch *loggingEnabledSwitch = [[UISwitch alloc] init];
-            loggingEnabledSwitch.onTintColor = [UIColor lf_lyftTitleColor];
-            [loggingEnabledSwitch setOn:self.tripsManager.loggingEnabled animated:NO];
-            [loggingEnabledSwitch addTarget:self
-                                     action:@selector(loggingEnabledButtonValueChanged:)
-                           forControlEvents:UIControlEventValueChanged];
-            
-            switchCell.accessoryView = loggingEnabledSwitch;
-            
-            switchCell.textLabel.text = @"Trip Logging";
-            switchCell.textLabel.textColor = [UIColor lf_cellTitleColor];
-            switchCell.textLabel.font = [UIFont boldSystemFontOfSize:17.0f];
-
-            switchCell.selectionStyle = UITableViewCellSelectionStyleNone;
-            
-            return switchCell;
+            NSString *endTimeString = [timeDateFormatter stringFromDate:timeInterval.endDate];
+            timeIntervalString = [NSString stringWithFormat:@"%@-%@",
+                                  startTimeString,
+                                  endTimeString];
         }
             break;
-            
-        case 1:
-        {
-            LFTrip *trip = [self.tripsManager.allTrips objectAtIndex:indexPath.row];
-            UITableViewCell *tripCell = [tableView lf_dequeueOrCreateCellWithStyle:UITableViewCellStyleSubtitle
-                                                                   reuseIdentifier:@"TripCell"];
-            
-            tripCell.layoutMargins = UIEdgeInsetsZero;
-            
-            tripCell.imageView.image = [UIImage imageNamed:@"CarIcon"];
-            
-            tripCell.textLabel.textColor = [UIColor lf_cellTitleColor];
-            tripCell.textLabel.text = @"Title";
-            tripCell.textLabel.font = [UIFont boldSystemFontOfSize:15.0f];
-            
-            NSString *timeIntervalString = nil;
-            LFTimeInterval *timeInterval = trip.timeInterval;
-            NSInteger minutes = timeInterval.duration / 60;
-            
-            NSDateFormatter *timeDateFormatter = [NSDateFormatter lf_timeOfDayDateFormatter];
-            NSString *startTimeString = [timeDateFormatter stringFromDate:timeInterval.startDate];
-            
-            switch (trip.state) {
-                case LFTripStateActive:
-                    timeIntervalString = startTimeString;
-                    break;
-                    
-                case LFTripStateCompleted:
-                {
-                    NSString *endTimeString = [timeDateFormatter stringFromDate:timeInterval.endDate];
-                    timeIntervalString = [NSString stringWithFormat:@"%@-%@",
-                                          startTimeString,
-                                          endTimeString];
-                }
-                    break;
-            }
-            
-            tripCell.detailTextLabel.text = [NSString stringWithFormat:@"%@ (%zdmin)", timeIntervalString, minutes];
-            tripCell.detailTextLabel.textColor = [UIColor grayColor];
-            tripCell.detailTextLabel.font = [UIFont italicSystemFontOfSize:13.0];
-            
-            return tripCell;
-        }
-            break;
-            
-        default:
-            NSAssert(NO, @"Invalid section");
-            return nil;
-            break;
     }
-}
-
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if (indexPath.section == 0)
-    {
-        return 72.0f;
-    }
-    else
-    {
-        return tableView.rowHeight;
-    }
+    
+    tripCell.detailTextLabel.text = [NSString stringWithFormat:@"%@ (%zdmin)", timeIntervalString, minutes];
+    tripCell.detailTextLabel.textColor = [UIColor grayColor];
+    tripCell.detailTextLabel.font = [UIFont italicSystemFontOfSize:13.0];
+    
+    return tripCell;
 }
 
 @end
