@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
+@class LFTimeInterval;
+
 typedef NS_ENUM(NSInteger, LFTripState) {
     LFTripStateActive,
     LFTripStateCompleted
@@ -15,7 +17,12 @@ typedef NS_ENUM(NSInteger, LFTripState) {
 
 @interface LFTrip : NSObject
 
+- (instancetype)init;
+- (instancetype)initWithLocations:(NSArray *)locations;
+
 @property (nonatomic, readonly, strong) NSArray *locations;
 @property (readonly) LFTripState state;
+
+- (LFTimeInterval *)timeInterval;
 
 @end
