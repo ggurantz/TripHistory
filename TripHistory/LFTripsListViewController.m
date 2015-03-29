@@ -119,8 +119,6 @@
     
     tripCell.layoutMargins = UIEdgeInsetsZero;
     
-    tripCell.imageView.image = [UIImage imageNamed:@"CarIcon"];
-    
     tripCell.textLabel.textColor = [UIColor lf_cellTitleColor];
     tripCell.textLabel.text = @"Title";
     tripCell.textLabel.font = [UIFont boldSystemFontOfSize:15.0f];
@@ -135,6 +133,7 @@
     switch (trip.state) {
         case LFTripStateActive:
             timeIntervalString = startTimeString;
+            tripCell.imageView.image = [UIImage imageNamed:@"CarIconActive"];
             break;
             
         case LFTripStateCompleted:
@@ -143,6 +142,8 @@
             timeIntervalString = [NSString stringWithFormat:@"%@-%@",
                                   startTimeString,
                                   endTimeString];
+            
+            tripCell.imageView.image = [UIImage imageNamed:@"CarIcon"];
         }
             break;
     }
