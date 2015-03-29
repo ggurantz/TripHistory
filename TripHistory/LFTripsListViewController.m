@@ -12,6 +12,9 @@
 #import "LFTripsManager.h"
 #import "NSNotification+NSError.h"
 #import "NSNotification+LFTrip.h"
+#import "LFTrip.h"
+#import "LFTimeInterval.h"
+#import "NSDateFormatter+LFExtensions.h"
 
 @interface LFTripsListViewController ()
 
@@ -68,19 +71,20 @@
 
 - (void)tripsManagerDidBeginNewTrip:(NSNotification *)notification
 {
-    
     [self.tableView insertRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:0 inSection:1]]
                           withRowAnimation:UITableViewRowAnimationTop];
 }
 
 - (void)tripsManagerDidUpdateTrip:(NSNotification *)notification
 {
-//    [self.tableView reloadData];
+    [self.tableView reloadRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:0 inSection:1]]
+                          withRowAnimation:UITableViewRowAnimationNone];
 }
 
 - (void)tripsManagerDidCompleteTrip:(NSNotification *)notification
 {
-//    [self.tableView reloadData];
+    [self.tableView reloadRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:0 inSection:1]]
+                          withRowAnimation:UITableViewRowAnimationFade];
 }
 
 - (void)tripsManagerDidFailAuthorization:(NSNotification *)notification
@@ -142,6 +146,7 @@
             
         case 1:
         {
+            LFTrip *trip = [self.tripsManager.allTrips objectAtIndex:indexPath.row];
             UITableViewCell *tripCell = [tableView lf_dequeueOrCreateCellWithStyle:UITableViewCellStyleSubtitle
                                                                    reuseIdentifier:@"TripCell"];
             
@@ -153,7 +158,29 @@
             tripCell.textLabel.text = @"Title";
             tripCell.textLabel.font = [UIFont boldSystemFontOfSize:15.0f];
             
-            tripCell.detailTextLabel.text = @"Test";
+            NSString *timeIntervalString = nil;
+            LFTimeInterval *timeInterval = trip.timeInterval;
+            NSInteger minutes = timeInterval.duration / 60;
+            
+            NSDateFormatter *timeDateFormatter = [NSDateFormatter lf_timeOfDayDateFormatter];
+            NSString *startTimeString = [timeDateFormatter stringFromDate:timeInterval.startDate];
+            
+            switch (trip.state) {
+                case LFTripStateActive:
+                    timeIntervalString = startTimeString;
+                    break;
+                    
+                case LFTripStateCompleted:
+                {
+                    NSString *endTimeString = [timeDateFormatter stringFromDate:timeInterval.endDate];
+                    timeIntervalString = [NSString stringWithFormat:@"%@-%@",
+                                          startTimeString,
+                                          endTimeString];
+                }
+                    break;
+            }
+            
+            tripCell.detailTextLabel.text = [NSString stringWithFormat:@"%@ (%zdmin)", timeIntervalString, minutes];
             tripCell.detailTextLabel.textColor = [UIColor grayColor];
             tripCell.detailTextLabel.font = [UIFont italicSystemFontOfSize:13.0];
             

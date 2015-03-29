@@ -29,6 +29,7 @@
 		396CCBF71AC7CD65005FBEE3 /* NSNotification+LFTrip.m in Sources */ = {isa = PBXBuildFile; fileRef = 396CCBF61AC7CD65005FBEE3 /* NSNotification+LFTrip.m */; };
 		396CCBFA1AC7CE92005FBEE3 /* NSNotification+NSError.m in Sources */ = {isa = PBXBuildFile; fileRef = 396CCBF91AC7CE92005FBEE3 /* NSNotification+NSError.m */; };
 		396CCBFD1AC7D48B005FBEE3 /* LFTimeInterval.m in Sources */ = {isa = PBXBuildFile; fileRef = 396CCBFC1AC7D48B005FBEE3 /* LFTimeInterval.m */; };
+		396CCC031AC7D9BF005FBEE3 /* NSDateFormatter+LFExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 396CCC021AC7D9BF005FBEE3 /* NSDateFormatter+LFExtensions.m */; };
 		399C7DA31AC76C3A007F2EE0 /* LFActiveTripManagerTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = 399C7DA11AC76C3A007F2EE0 /* LFActiveTripManagerTestCase.m */; };
 		399C7DA41AC76C3A007F2EE0 /* LFLocationManagerTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = 399C7DA21AC76C3A007F2EE0 /* LFLocationManagerTestCase.m */; };
 /* End PBXBuildFile section */
@@ -84,6 +85,8 @@
 		396CCBF91AC7CE92005FBEE3 /* NSNotification+NSError.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSNotification+NSError.m"; sourceTree = "<group>"; };
 		396CCBFB1AC7D48B005FBEE3 /* LFTimeInterval.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LFTimeInterval.h; sourceTree = "<group>"; };
 		396CCBFC1AC7D48B005FBEE3 /* LFTimeInterval.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LFTimeInterval.m; sourceTree = "<group>"; };
+		396CCC011AC7D9BF005FBEE3 /* NSDateFormatter+LFExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDateFormatter+LFExtensions.h"; sourceTree = "<group>"; };
+		396CCC021AC7D9BF005FBEE3 /* NSDateFormatter+LFExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDateFormatter+LFExtensions.m"; sourceTree = "<group>"; };
 		399C7DA11AC76C3A007F2EE0 /* LFActiveTripManagerTestCase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LFActiveTripManagerTestCase.m; sourceTree = "<group>"; };
 		399C7DA21AC76C3A007F2EE0 /* LFLocationManagerTestCase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LFLocationManagerTestCase.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -132,26 +135,9 @@
 			isa = PBXGroup;
 			children = (
 				3957CEC91AC75076008AEBE2 /* Extensions */,
-				3957CE991AC74DFC008AEBE2 /* AppDelegate.h */,
-				3957CE9A1AC74DFC008AEBE2 /* AppDelegate.m */,
-				396CCBFB1AC7D48B005FBEE3 /* LFTimeInterval.h */,
-				396CCBFC1AC7D48B005FBEE3 /* LFTimeInterval.m */,
-				396CCBE91AC7C3B6005FBEE3 /* LFTripsListViewController.h */,
-				396CCBEA1AC7C3B6005FBEE3 /* LFTripsListViewController.m */,
-				394D740C1AC7A18100B0FFEB /* LFTripsManager.h */,
-				394D74111AC7BC6800B0FFEB /* LFTripsManager+Protected.h */,
-				394D740D1AC7A18100B0FFEB /* LFTripsManager.m */,
-				3957CED51AC758F7008AEBE2 /* LFTrip.h */,
-				3957CED61AC758F7008AEBE2 /* LFTrip.m */,
-				394D74091AC77B4500B0FFEB /* LFActiveTrip.h */,
-				394D740A1AC77B4500B0FFEB /* LFActiveTrip.m */,
-				3957CEBE1AC74EA4008AEBE2 /* LFActiveTripManager.h */,
-				3957CEBF1AC74EA4008AEBE2 /* LFActiveTripManager.m */,
-				3957CEC11AC74EC4008AEBE2 /* LFLocationManager.h */,
-				3957CEC21AC74EC4008AEBE2 /* LFLocationManager.m */,
-				3957CEA21AC74DFC008AEBE2 /* Main.storyboard */,
+				396CCBFE1AC7D685005FBEE3 /* Models */,
+				396CCBFF1AC7D6AA005FBEE3 /* Controllers */,
 				3957CEA51AC74DFC008AEBE2 /* Images.xcassets */,
-				3957CEA71AC74DFC008AEBE2 /* LaunchScreen.xib */,
 				3957CE9C1AC74DFC008AEBE2 /* TripHistory.xcdatamodeld */,
 				3957CE951AC74DFC008AEBE2 /* Supporting Files */,
 			);
@@ -200,8 +186,43 @@
 				396CCBF61AC7CD65005FBEE3 /* NSNotification+LFTrip.m */,
 				396CCBF81AC7CE92005FBEE3 /* NSNotification+NSError.h */,
 				396CCBF91AC7CE92005FBEE3 /* NSNotification+NSError.m */,
+				396CCC011AC7D9BF005FBEE3 /* NSDateFormatter+LFExtensions.h */,
+				396CCC021AC7D9BF005FBEE3 /* NSDateFormatter+LFExtensions.m */,
 			);
 			name = Extensions;
+			sourceTree = "<group>";
+		};
+		396CCBFE1AC7D685005FBEE3 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				396CCBFB1AC7D48B005FBEE3 /* LFTimeInterval.h */,
+				396CCBFC1AC7D48B005FBEE3 /* LFTimeInterval.m */,
+				394D740C1AC7A18100B0FFEB /* LFTripsManager.h */,
+				394D74111AC7BC6800B0FFEB /* LFTripsManager+Protected.h */,
+				394D740D1AC7A18100B0FFEB /* LFTripsManager.m */,
+				3957CED51AC758F7008AEBE2 /* LFTrip.h */,
+				3957CED61AC758F7008AEBE2 /* LFTrip.m */,
+				394D74091AC77B4500B0FFEB /* LFActiveTrip.h */,
+				394D740A1AC77B4500B0FFEB /* LFActiveTrip.m */,
+				3957CEBE1AC74EA4008AEBE2 /* LFActiveTripManager.h */,
+				3957CEBF1AC74EA4008AEBE2 /* LFActiveTripManager.m */,
+				3957CEC11AC74EC4008AEBE2 /* LFLocationManager.h */,
+				3957CEC21AC74EC4008AEBE2 /* LFLocationManager.m */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		396CCBFF1AC7D6AA005FBEE3 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				396CCBE91AC7C3B6005FBEE3 /* LFTripsListViewController.h */,
+				396CCBEA1AC7C3B6005FBEE3 /* LFTripsListViewController.m */,
+				3957CEA21AC74DFC008AEBE2 /* Main.storyboard */,
+				3957CEA71AC74DFC008AEBE2 /* LaunchScreen.xib */,
+				3957CE991AC74DFC008AEBE2 /* AppDelegate.h */,
+				3957CE9A1AC74DFC008AEBE2 /* AppDelegate.m */,
+			);
+			name = Controllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -318,6 +339,7 @@
 				396CCBFA1AC7CE92005FBEE3 /* NSNotification+NSError.m in Sources */,
 				396CCBF71AC7CD65005FBEE3 /* NSNotification+LFTrip.m in Sources */,
 				3957CED21AC752F6008AEBE2 /* NSError+LFExtensions.m in Sources */,
+				396CCC031AC7D9BF005FBEE3 /* NSDateFormatter+LFExtensions.m in Sources */,
 				3957CE9E1AC74DFC008AEBE2 /* TripHistory.xcdatamodeld in Sources */,
 				3957CEC01AC74EA4008AEBE2 /* LFActiveTripManager.m in Sources */,
 				394D740E1AC7A18100B0FFEB /* LFTripsManager.m in Sources */,

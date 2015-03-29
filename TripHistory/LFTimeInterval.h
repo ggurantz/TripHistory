@@ -11,6 +11,9 @@
 @interface LFTimeInterval : NSObject
 
 - (instancetype)initWithStartDate:(NSDate *)startDate endDate:(NSDate *)endDate;
+
+- (NSDate *)startDate;
+- (NSDate *)endDate;
 - (NSTimeInterval)duration;
 
 @end
