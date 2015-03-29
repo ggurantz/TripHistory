@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
+@class LFTrip;
+
 /*
  A controller to sit on top of LFActiveTrip and manage the
  serializing of trips as they are created. You only want to create
@@ -26,5 +28,8 @@ extern NSString *const LFTripsManagerDidFailAuthorization;
 - (void)removeAllTrips;
 
 @property (nonatomic, readwrite, assign) BOOL loggingEnabled;
+
+- (NSString *)startAddressForTrip:(LFTrip *)trip;
+- (NSString *)endAddressForTrip:(LFTrip *)trip;
 
 @end

@@ -35,14 +35,29 @@
     return LFTripStateCompleted;
 }
 
+- (CLLocation *)startLocation
+{
+    if (self.locations.count > 0)
+    {
+        return self.locations[0];
+    }
+    else
+    {
+        return nil;
+    }
+}
+
+- (CLLocation *)endLocation
+{
+    return self.locations.lastObject;
+}
+
 - (LFTimeInterval *)timeInterval
 {
     NSAssert(self.locations.count > 0, @"A trip must have at least one location");
-    CLLocation *firstLocation = [self.locations objectAtIndex:0];
-    CLLocation *lastLocation = [self.locations lastObject];
     
-    return [[LFTimeInterval alloc] initWithStartDate:firstLocation.timestamp
-                                             endDate:lastLocation.timestamp];
+    return [[LFTimeInterval alloc] initWithStartDate:self.startLocation.timestamp
+                                             endDate:self.endLocation.timestamp];
 }
 
 @end

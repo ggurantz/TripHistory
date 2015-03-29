@@ -10,6 +10,7 @@
 #import "LFActiveTripManager.h"
 #import "NSNotification+LFTrip.h"
 #import "NSNotification+NSError.h"
+#import "LFTrip.h"
 
 NSString *const LFTripsManagerDidBeginNewTripNotification = @"LFTripsManagerDidBeginNewTripNotification";
 NSString *const LFTripsManagerDidUpdateTripNotification = @"LFTripsManagerDidUpdateTripNotification";
@@ -21,6 +22,7 @@ NSString *const LFTripsManagerDidFailAuthorization = @"LFTripsManagerDidFailAuth
 @property (nonatomic, readwrite, strong) NSMutableArray *trips;
 @property (nonatomic, readwrite, strong) LFActiveTripManager *activeTripManager;
 @property (nonatomic, readwrite, strong) NSNotificationCenter *notificationCenter;
+@property (nonatomic, readwrite, strong) CLGeocoder *geocoder;
 
 @end
 
@@ -32,6 +34,7 @@ NSString *const LFTripsManagerDidFailAuthorization = @"LFTripsManagerDidFailAuth
     if (self) {
         self.trips = [NSMutableArray array];
         self.notificationCenter = [NSNotificationCenter defaultCenter];
+        self.geocoder = [[CLGeocoder alloc] init];
     }
     return self;
 }
@@ -68,6 +71,57 @@ NSString *const LFTripsManagerDidFailAuthorization = @"LFTripsManagerDidFailAuth
     }
 }
 
+#pragma mark - Geocoding
+
+- (void)reverseGeocoderLocation:(CLLocation *)location
+                        success:(void (^)(NSString *address))completion
+{
+    [self.geocoder reverseGeocodeLocation:location
+                        completionHandler:^(NSArray *placemarks, NSError *error) {
+                            if (error == nil && placemarks.count > 0)
+                            {
+                                completion([placemarks[0] thoroughfare]);
+                            }
+                        }];
+}
+
+- (NSString *)startAddressForTrip:(LFTrip *)trip
+{
+    if (trip.startLocationAddress.length == 0)
+    {
+        __block LFTripsManager *blockSelf = self;
+        [self reverseGeocoderLocation:trip.startLocation
+                              success:^(NSString *address) {
+                                  trip.startLocationAddress = address;
+                                  [blockSelf postUpdateNotificationForTrip:trip];
+                              }];
+    }
+    
+    return trip.startLocationAddress;
+}
+
+- (NSString *)endAddressForTrip:(LFTrip *)trip
+{
+    if (trip.endLocationAddress.length == 0)
+    {
+        __block LFTripsManager *blockSelf = self;
+        [self reverseGeocoderLocation:trip.endLocation
+                              success:^(NSString *address) {
+                                  trip.endLocationAddress = address;
+                                  [blockSelf postUpdateNotificationForTrip:trip];
+                              }];
+    }
+    
+    return trip.endLocationAddress;
+}
+
+- (void)postUpdateNotificationForTrip:(LFTrip *)trip
+{
+    [self.notificationCenter postNotificationName:LFTripsManagerDidUpdateTripNotification
+                                           object:self
+                                             trip:trip];
+}
+
 #pragma mark - LFActiveTripManagerDelegate
 
 - (void)activeTripManager:(LFActiveTripManager *)tripManager didBeginNewTrip:(LFTrip *)trip
@@ -80,9 +134,7 @@ NSString *const LFTripsManagerDidFailAuthorization = @"LFTripsManagerDidFailAuth
 
 - (void)activeTripManager:(LFActiveTripManager *)tripManager didUpdateTrip:(LFTrip *)trip
 {
-    [self.notificationCenter postNotificationName:LFTripsManagerDidUpdateTripNotification
-                                           object:self
-                                             trip:trip];
+    [self postUpdateNotificationForTrip:trip];
 }
 
 - (void)activeTripManager:(LFActiveTripManager *)tripManager didCompleteTrip:(LFTrip *)trip

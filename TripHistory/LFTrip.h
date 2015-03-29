@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <CoreLocation/CoreLocation.h>
 
 @class LFTimeInterval;
 
@@ -21,8 +22,12 @@ typedef NS_ENUM(NSInteger, LFTripState) {
 - (instancetype)initWithLocations:(NSArray *)locations;
 
 @property (nonatomic, readonly, strong) NSArray *locations;
-@property (readonly) LFTripState state;
-
+- (LFTripState)state;
+- (CLLocation *)startLocation;
+- (CLLocation *)endLocation;
 - (LFTimeInterval *)timeInterval;
+
+@property (nonatomic, readwrite, strong) NSString *startLocationAddress;
+@property (nonatomic, readwrite, strong) NSString *endLocationAddress;
 
 @end

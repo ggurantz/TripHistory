@@ -102,6 +102,22 @@
     [alertView show];
 }
 
+- (void)updateAddresLabel:(UILabel *)label
+        activityIndicator:(UIActivityIndicatorView *)activityIndicator
+              withAddress:(NSString *)address
+{
+    if (address.length > 0)
+    {
+        label.text = address;
+        [activityIndicator stopAnimating];
+    }
+    else
+    {
+        label.text = @"";
+        [activityIndicator startAnimating];
+    }
+}
+
 #pragma mark - UITableView
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -120,7 +136,9 @@
     
     tripCell.layoutMargins = UIEdgeInsetsZero;
     
-    tripCell.startLocationLabel.text = @"Start";
+    [self updateAddresLabel:tripCell.startLocationLabel
+          activityIndicator:tripCell.startActivityIndicator
+                withAddress:[self.tripsManager startAddressForTrip:trip]];
     
     NSString *timeIntervalString = nil;
     LFTimeInterval *timeInterval = trip.timeInterval;
@@ -146,7 +164,10 @@
             
             tripCell.carImageView.image = [UIImage imageNamed:@"CarIcon"];
             tripCell.chevronImageView.hidden = NO;
-            tripCell.endLocationLabel.text = @"End";
+            
+            [self updateAddresLabel:tripCell.endLocationLabel
+                  activityIndicator:tripCell.endActivityIndicator
+                        withAddress:[self.tripsManager endAddressForTrip:trip]];
         }
             break;
     }

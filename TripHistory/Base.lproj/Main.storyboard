@@ -57,6 +57,7 @@
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AbT-d8-BJI">
                                             <rect key="frame" x="58" y="8" width="39" height="18"/>
                                             <constraints>
+                                                <constraint firstAttribute="height" constant="18" id="HWr-fz-Bph"/>
                                                 <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="20" id="JAt-Dx-9Hq"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
@@ -106,6 +107,7 @@
                                         <constraint firstItem="Bb7-M8-iof" firstAttribute="centerY" secondItem="hpu-HX-ptG" secondAttribute="centerY" id="Sag-NH-aYw"/>
                                         <constraint firstItem="Cwq-Qk-hDd" firstAttribute="top" secondItem="3fd-hN-7pv" secondAttribute="bottom" constant="2" id="X1l-k1-jw1"/>
                                         <constraint firstItem="Bb7-M8-iof" firstAttribute="leading" secondItem="AbT-d8-BJI" secondAttribute="trailing" constant="8" id="XE4-CT-wKa"/>
+                                        <constraint firstItem="AbT-d8-BJI" firstAttribute="height" secondItem="hpu-HX-ptG" secondAttribute="height" id="XOQ-tg-kse"/>
                                         <constraint firstItem="Cwq-Qk-hDd" firstAttribute="leading" secondItem="AbT-d8-BJI" secondAttribute="leading" id="a8v-jc-ZFU"/>
                                         <constraint firstItem="AbT-d8-BJI" firstAttribute="leading" secondItem="OTw-mx-G4d" secondAttribute="trailing" constant="16" id="aqh-Er-7hT"/>
                                         <constraint firstItem="wWw-hG-S89" firstAttribute="leading" secondItem="hpu-HX-ptG" secondAttribute="leading" id="bhi-4G-XET"/>
