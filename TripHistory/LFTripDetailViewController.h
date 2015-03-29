@@ -9,9 +9,11 @@
 #import <UIKit/UIKit.h>
 
 @class LFTrip;
+@class LFTripsManager;
 
 @interface LFTripDetailViewController : UIViewController
 
 @property (nonatomic, readwrite, strong) LFTrip *trip;
+@property (nonatomic, readwrite, strong) LFTripsManager *tripsManager;
 
 @end

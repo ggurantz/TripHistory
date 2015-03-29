@@ -195,6 +195,7 @@
     LFTrip *trip = [self.tripsManager.allTrips objectAtIndex:indexPath.row];
     LFTripDetailViewController *viewController = [LFTripDetailViewController lf_createFromStoryboard];
     viewController.trip = trip;
+    viewController.tripsManager = self.tripsManager;
     
     [self.navigationController pushViewController:viewController animated:true];
 }
