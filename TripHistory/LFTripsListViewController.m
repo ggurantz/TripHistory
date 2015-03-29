@@ -15,6 +15,7 @@
 #import "LFTrip.h"
 #import "LFTimeInterval.h"
 #import "NSDateFormatter+LFExtensions.h"
+#import "LFTripCell.h"
 
 @interface LFTripsListViewController ()
 
@@ -114,14 +115,12 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     LFTrip *trip = [self.tripsManager.allTrips objectAtIndex:indexPath.row];
-    UITableViewCell *tripCell = [tableView lf_dequeueOrCreateCellWithStyle:UITableViewCellStyleSubtitle
-                                                           reuseIdentifier:@"TripCell"];
+    LFTripCell *tripCell = (LFTripCell *)[tableView dequeueReusableCellWithIdentifier:@"LFTripCell"
+                                                                         forIndexPath:indexPath];
     
     tripCell.layoutMargins = UIEdgeInsetsZero;
     
-    tripCell.textLabel.textColor = [UIColor lf_cellTitleColor];
-    tripCell.textLabel.text = @"Title";
-    tripCell.textLabel.font = [UIFont boldSystemFontOfSize:15.0f];
+    tripCell.startLocationLabel.text = @"Start";
     
     NSString *timeIntervalString = nil;
     LFTimeInterval *timeInterval = trip.timeInterval;
@@ -133,7 +132,9 @@
     switch (trip.state) {
         case LFTripStateActive:
             timeIntervalString = startTimeString;
-            tripCell.imageView.image = [UIImage imageNamed:@"CarIconActive"];
+            tripCell.carImageView.image = [UIImage imageNamed:@"CarIconActive"];
+            tripCell.chevronImageView.hidden = YES;
+            tripCell.endLocationLabel.text = @"";
             break;
             
         case LFTripStateCompleted:
@@ -143,14 +144,14 @@
                                   startTimeString,
                                   endTimeString];
             
-            tripCell.imageView.image = [UIImage imageNamed:@"CarIcon"];
+            tripCell.carImageView.image = [UIImage imageNamed:@"CarIcon"];
+            tripCell.chevronImageView.hidden = NO;
+            tripCell.endLocationLabel.text = @"End";
         }
             break;
     }
     
-    tripCell.detailTextLabel.text = [NSString stringWithFormat:@"%@ (%zdmin)", timeIntervalString, minutes];
-    tripCell.detailTextLabel.textColor = [UIColor grayColor];
-    tripCell.detailTextLabel.font = [UIFont italicSystemFontOfSize:13.0];
+    tripCell.timeIntervalLabel.text = [NSString stringWithFormat:@"%@ (%zdmin)", timeIntervalString, minutes];
     
     return tripCell;
 }
