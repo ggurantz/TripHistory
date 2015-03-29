@@ -90,14 +90,12 @@
 
 - (void)tripsManagerDidUpdateTrip:(NSNotification *)notification
 {
-    [self.tableView reloadRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:0 inSection:0]]
-                          withRowAnimation:UITableViewRowAnimationNone];
+    [self reloadCellForTrip:[notification trip]];
 }
 
 - (void)tripsManagerDidCompleteTrip:(NSNotification *)notification
 {
-    [self.tableView reloadRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:0 inSection:0]]
-                          withRowAnimation:UITableViewRowAnimationFade];
+    [self reloadCellForTrip:[notification trip]];
 }
 
 - (void)tripsManagerDidFailAuthorization:(NSNotification *)notification
@@ -111,6 +109,17 @@
                                               cancelButtonTitle:@"OK"
                                               otherButtonTitles:nil];
     [alertView show];
+}
+
+- (void)reloadCellForTrip:(LFTrip *)trip
+{
+    NSInteger index = [self.tripsManager.allTrips indexOfObject:trip];
+    
+    if (index != NSNotFound)
+    {
+        [self.tableView reloadRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:index inSection:0]]
+                              withRowAnimation:UITableViewRowAnimationNone];
+    }
 }
 
 - (void)updateAddresLabel:(UILabel *)label
