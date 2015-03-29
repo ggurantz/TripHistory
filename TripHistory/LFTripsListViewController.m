@@ -90,7 +90,7 @@
 
 - (void)tripsManagerDidFailAuthorization:(NSNotification *)notification
 {
-    [self.tableView reloadData];
+    [self.loggingSwitch setOn:NO animated:YES];
     
     NSError *error = [notification error];
     UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Authorization Error"
