@@ -58,11 +58,16 @@
     XCTAssertEqual(self.trips.count, 0);
 }
 
+- (void)assertTrip:(LFTrip *)trip isCreatedWithLocations:(NSArray *)locations
+{
+    XCTAssertNotNil(trip);
+    XCTAssertTrue([trip.locations isEqualToArray:locations]);
+}
+
 - (void)assertTripIsCreatedWithLocations:(NSArray *)locations
 {
-    XCTAssertNotNil(self.tripManager.trip);
-    XCTAssertEqual(@[self.tripManager.trip], self.trips);
-    XCTAssertEqual(self.tripManager.trip.locations, locations);
+    [self assertTrip:self.tripManager.trip isCreatedWithLocations:locations];
+    XCTAssertTrue([@[self.tripManager.trip] isEqualToArray:self.trips]);
 }
 
 #pragma mark - LFActiveTripManagerDelegate
@@ -121,7 +126,7 @@
     [self addLocations:@[locations[0]]];
     [self addLocations:@[locations[1]]];
     
-    [self assertTripIsCreatedWithLocations:locations];
+    [self assertTripIsCreatedWithLocations:@[locations[0]]];
 }
 
 - (void)testThatAnUpdateWithHighSpeedDoesNotCreateANewTrip
@@ -153,8 +158,30 @@
     [self addLocations:locations];
     
     XCTAssertEqual(self.completions, 1);
-    XCTAssertEqual(self.tripManager.trip.state, LFTripStateCompleted);
-    [self assertTripIsCreatedWithLocations:@[startLocation]];
+    XCTAssertEqual([self.trips[0] state], LFTripStateCompleted);
+    [self assertTrip:self.trips[0] isCreatedWithLocations:@[startLocation]];
+}
+
+- (void)testThatATripIsCreatedAfterAnotherCompletes
+{
+    CLLocation *startLocation = [self locationWithSpeed:kLFActiveTripManagerTripStartSpeed
+                                              timeStamp:[NSDate date]];
+    CLLocation *endLocation = [self locationWithSpeed:kLFActiveTripManagerTripStartSpeed
+                                            timeStamp:[startLocation.timestamp dateByAddingTimeInterval:kLFActiveTripManagerTripEndIdleTimeInterval]];
+    
+    
+    NSArray *locations = @[startLocation, endLocation];
+    [self addLocations:locations];
+    
+    XCTAssertEqual(self.completions, 1);
+    XCTAssertEqual(self.trips.count, 2);
+    
+    [self assertTrip:self.trips[0] isCreatedWithLocations:@[startLocation]];
+    [self assertTrip:self.trips[1] isCreatedWithLocations:@[endLocation]];
+    
+    XCTAssertEqual([self.trips[0] state], LFTripStateCompleted);
+    XCTAssertEqual(self.trips[1], self.tripManager.trip);
+    XCTAssertEqual([self.trips[1] state], LFTripStateActive);
 }
 
 // Test batch update messages resolving?

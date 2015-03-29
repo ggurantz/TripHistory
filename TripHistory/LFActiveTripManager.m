@@ -38,11 +38,45 @@ NSTimeInterval const kLFActiveTripManagerTripEndIdleTimeInterval = 60.0f; // 1 m
     return self.activeTrip;
 }
 
+- (void)createActiveTripIfNecessaryWithLocation:(CLLocation *)location
+{
+    if (location.speed >= kLFActiveTripManagerTripStartSpeed)
+    {
+        self.activeTrip = [[LFActiveTrip alloc] init];
+        [self.activeTrip addLocations:@[location]];
+        [self.delegate activeTripManager:self didBeginNewTrip:self.activeTrip];
+    }
+}
+
 #pragma mark - LFLocationManagerDelegate
 
 - (void)locationManager:(LFLocationManager *)locationManager didUpdateLocations:(NSArray *)locations
 {
-    
+    for (CLLocation *location in locations) {
+        
+        if (self.activeTrip == nil)
+        {
+            [self createActiveTripIfNecessaryWithLocation:location];
+        }
+        else
+        {
+            NSTimeInterval timeIntervalSinceLastLocation = [location.timestamp timeIntervalSinceDate:[self.activeTrip.locations.lastObject timestamp]];
+            
+            if (timeIntervalSinceLastLocation >= kLFActiveTripManagerTripEndIdleTimeInterval)
+            {
+                [self.activeTrip updateState:LFTripStateCompleted];
+                [self.delegate activeTripManager:self didCompleteTrip:self.activeTrip];
+                self.activeTrip = nil;
+                
+                [self createActiveTripIfNecessaryWithLocation:location];
+            }
+            else if (location.speed > kLFActiveTripManagerMinimumActivitySpeed)
+            {
+                [self.activeTrip addLocations:@[location]];
+                [self.delegate activeTripManager:self didUpdateTrip:self.activeTrip];
+            }
+        }
+    }
 }
 
 - (void)locationManager:(LFLocationManager *)locationManager didFailAuthorizationWithError:(NSError *)error
