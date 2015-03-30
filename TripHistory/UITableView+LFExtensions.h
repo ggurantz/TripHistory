@@ -13,4 +13,7 @@
 - (UITableViewCell *)lf_dequeueOrCreateCellWithStyle:(UITableViewCellStyle)style
                                      reuseIdentifier:(NSString *)reuseIdentifier;
 
+- (id)lf_dequeueCellClass:(Class)aClass;
+- (void)lf_registerCellClass:(Class)aClass;
+
 @end

@@ -14,6 +14,7 @@
 #import "LFTripsManager.h"
 #import "NSNotification+LFTrip.h"
 #import "LFTripCell.h"
+#import "UITableView+LFExtensions.h"
 
 @interface LFTripDetailViewController () <MKMapViewDelegate, UITableViewDataSource, UITableViewDelegate>
 
@@ -24,6 +25,8 @@
 @property (nonatomic, readwrite, strong) MKPointAnnotation *startPointAnnotation;
 @property (nonatomic, readwrite, strong) MKPointAnnotation *carAnnotation;
 @property (nonatomic, readwrite, strong) MKPointAnnotation *endPointAnnotation;
+
+@property (nonatomic, readwrite, strong) IBOutlet UITableView *tableView;
 
 @end
 
@@ -37,6 +40,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    [self.tableView lf_registerCellClass:[LFTripCell class]];
     
     self.notificationCenter = [NSNotificationCenter defaultCenter];
     [self.notificationCenter addObserver:self
@@ -224,8 +229,7 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     LFTrip *trip = [self.tripsManager.allTrips objectAtIndex:indexPath.row];
-    LFTripCell *tripCell = (LFTripCell *)[tableView dequeueReusableCellWithIdentifier:@"LFTripCell"
-                                                                         forIndexPath:indexPath];
+    LFTripCell *tripCell = [tableView lf_dequeueCellClass:[LFTripCell class]];
     
     tripCell.layoutMargins = UIEdgeInsetsZero;
     [tripCell updateWithTrip:trip tripsManager:self.tripsManager];

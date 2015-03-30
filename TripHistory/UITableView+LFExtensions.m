@@ -24,4 +24,16 @@
     }
 }
 
+- (id)lf_dequeueCellClass:(Class)aClass
+{
+    return [self dequeueReusableCellWithIdentifier:NSStringFromClass(aClass)];
+}
+
+- (void)lf_registerCellClass:(Class)aClass
+{
+    NSString *name = NSStringFromClass(aClass);
+    UINib *nib = [UINib nibWithNibName:name bundle:nil];
+    [self registerNib:nib forCellReuseIdentifier:name];
+}
+
 @end

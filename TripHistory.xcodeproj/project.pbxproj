@@ -34,6 +34,7 @@
 		3970C9A21AC8A67B00062F64 /* LFTripDetailViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3970C9A11AC8A67B00062F64 /* LFTripDetailViewController.storyboard */; };
 		3970C9AB1AC8A77000062F64 /* UIViewController+LFExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 3970C9AA1AC8A77000062F64 /* UIViewController+LFExtensions.m */; };
 		3970C9AE1AC8C27100062F64 /* LFTimeOfDayFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 3970C9AD1AC8C27100062F64 /* LFTimeOfDayFormatter.m */; };
+		3970C9B01AC8C65C00062F64 /* LFTripCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3970C9AF1AC8C65C00062F64 /* LFTripCell.xib */; };
 		399C7DA31AC76C3A007F2EE0 /* LFActiveTripManagerTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = 399C7DA11AC76C3A007F2EE0 /* LFActiveTripManagerTestCase.m */; };
 		399C7DA41AC76C3A007F2EE0 /* LFLocationManagerTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = 399C7DA21AC76C3A007F2EE0 /* LFLocationManagerTestCase.m */; };
 /* End PBXBuildFile section */
@@ -98,6 +99,7 @@
 		3970C9AA1AC8A77000062F64 /* UIViewController+LFExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+LFExtensions.m"; sourceTree = "<group>"; };
 		3970C9AC1AC8C27100062F64 /* LFTimeOfDayFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LFTimeOfDayFormatter.h; sourceTree = "<group>"; };
 		3970C9AD1AC8C27100062F64 /* LFTimeOfDayFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LFTimeOfDayFormatter.m; sourceTree = "<group>"; };
+		3970C9AF1AC8C65C00062F64 /* LFTripCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LFTripCell.xib; sourceTree = "<group>"; };
 		399C7DA11AC76C3A007F2EE0 /* LFActiveTripManagerTestCase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LFActiveTripManagerTestCase.m; sourceTree = "<group>"; };
 		399C7DA21AC76C3A007F2EE0 /* LFLocationManagerTestCase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LFLocationManagerTestCase.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -231,6 +233,7 @@
 				3957CEA21AC74DFC008AEBE2 /* Main.storyboard */,
 				396CCBE91AC7C3B6005FBEE3 /* LFTripsListViewController.h */,
 				396CCBEA1AC7C3B6005FBEE3 /* LFTripsListViewController.m */,
+				3970C9AF1AC8C65C00062F64 /* LFTripCell.xib */,
 				3970C9921AC85A2400062F64 /* LFTripCell.h */,
 				3970C9931AC85A2400062F64 /* LFTripCell.m */,
 				3970C9A11AC8A67B00062F64 /* LFTripDetailViewController.storyboard */,
@@ -332,6 +335,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3957CEA41AC74DFC008AEBE2 /* Main.storyboard in Resources */,
+				3970C9B01AC8C65C00062F64 /* LFTripCell.xib in Resources */,
 				3957CEA91AC74DFC008AEBE2 /* LaunchScreen.xib in Resources */,
 				3957CEA61AC74DFC008AEBE2 /* Images.xcassets in Resources */,
 				3970C9A21AC8A67B00062F64 /* LFTripDetailViewController.storyboard in Resources */,

@@ -57,6 +57,7 @@
                                   object:self.tripsManager];
     
     self.tableView.layoutMargins = UIEdgeInsetsZero;
+    [self.tableView lf_registerCellClass:[LFTripCell class]];
     self.loggingSwitch.onTintColor = [UIColor lf_lyftTitleColor];
     self.navigationItem.titleView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"Logo"]];
 }
@@ -151,8 +152,7 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     LFTrip *trip = [self.tripsManager.allTrips objectAtIndex:indexPath.row];
-    LFTripCell *tripCell = (LFTripCell *)[tableView dequeueReusableCellWithIdentifier:@"LFTripCell"
-                                                                         forIndexPath:indexPath];
+    LFTripCell *tripCell = [tableView lf_dequeueCellClass:[LFTripCell class]];
     
     tripCell.layoutMargins = UIEdgeInsetsZero;
     [tripCell updateWithTrip:trip tripsManager:self.tripsManager];

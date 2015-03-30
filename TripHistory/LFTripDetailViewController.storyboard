@@ -23,21 +23,31 @@
                                 </connections>
                             </mapView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="J74-Hb-DBy">
-                                <rect key="frame" x="0.0" y="542" width="600" height="58"/>
+                                <rect key="frame" x="0.0" y="541" width="600" height="59"/>
                                 <subviews>
-                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="mT9-wE-1BE">
-                                        <rect key="frame" x="0.0" y="0.0" width="600" height="58"/>
+                                    <tableView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="58" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="mT9-wE-1BE">
+                                        <rect key="frame" x="0.0" y="1" width="600" height="58"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <connections>
+                                            <outlet property="dataSource" destination="iLN-6o-rJz" id="a4k-Eq-PjO"/>
+                                            <outlet property="delegate" destination="iLN-6o-rJz" id="cLd-aN-wcw"/>
+                                        </connections>
                                     </tableView>
                                 </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" red="0.80000001192092896" green="0.80000001192092896" blue="0.80000001192092896" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstItem="mT9-wE-1BE" firstAttribute="top" secondItem="J74-Hb-DBy" secondAttribute="top" id="Een-uU-5dE"/>
+                                    <constraint firstItem="mT9-wE-1BE" firstAttribute="top" secondItem="J74-Hb-DBy" secondAttribute="top" constant="1" id="Een-uU-5dE"/>
                                     <constraint firstAttribute="trailing" secondItem="mT9-wE-1BE" secondAttribute="trailing" id="JFS-Jd-Lj7"/>
                                     <constraint firstItem="mT9-wE-1BE" firstAttribute="leading" secondItem="J74-Hb-DBy" secondAttribute="leading" id="LOz-TJ-yOB"/>
-                                    <constraint firstAttribute="height" constant="58" id="ZPU-YX-HGG"/>
+                                    <constraint firstAttribute="height" constant="59" id="ZPU-YX-HGG"/>
+                                    <constraint firstItem="mT9-wE-1BE" firstAttribute="top" secondItem="J74-Hb-DBy" secondAttribute="top" constant="1" id="n0G-6w-kac"/>
                                     <constraint firstAttribute="bottom" secondItem="mT9-wE-1BE" secondAttribute="bottom" id="qAD-jX-kPO"/>
                                 </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="Een-uU-5dE"/>
+                                    </mask>
+                                </variation>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -53,6 +63,7 @@
                     </view>
                     <connections>
                         <outlet property="mapView" destination="s1H-Be-ErO" id="5bb-jw-TuW"/>
+                        <outlet property="tableView" destination="mT9-wE-1BE" id="67D-E6-eN3"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Xh3-gQ-hSz" userLabel="First Responder" sceneMemberID="firstResponder"/>
