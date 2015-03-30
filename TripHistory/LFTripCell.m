@@ -51,7 +51,6 @@
     
     NSString *timeIntervalString = nil;
     LFTimeInterval *timeInterval = trip.timeInterval;
-    NSInteger minutes = timeInterval.duration / 60;
     
     NSDateFormatter *timeDateFormatter = [LFTimeOfDayFormatter sharedFormatter];
     NSString *startTimeString = [timeDateFormatter stringFromDate:timeInterval.startDate];
@@ -83,7 +82,18 @@
             break;
     }
     
-    self.timeIntervalLabel.text = [NSString stringWithFormat:@"%@ (%zdmin)", timeIntervalString, minutes];
+    NSString *durationString = nil;
+    if (timeInterval.duration < 60.0f)
+    {
+        durationString = [NSString stringWithFormat:@"%zdsec", (NSInteger)timeInterval.duration];
+    }
+    else
+    {
+        NSInteger minutes = timeInterval.duration / 60;
+        durationString = [NSString stringWithFormat:@"%zdmin", minutes];
+
+    }
+    self.timeIntervalLabel.text = [NSString stringWithFormat:@"%@ (%@)", timeIntervalString, durationString];
 }
 
 @end

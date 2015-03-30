@@ -104,6 +104,11 @@
     
     [self.mapView setRegion:[self coordinateRegionFromLocations:locations]
                    animated:animated];
+    
+    if (animated)
+    {
+        [self reloadTableViewAnimated];
+    }
 }
 
 #pragma mark - LFTripsManager
@@ -215,6 +220,13 @@
 }
 
 #pragma mark - UITableView
+
+- (void)reloadTableViewAnimated
+{
+    [self.tableView reloadRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:0
+                                                                inSection:0]]
+                          withRowAnimation:UITableViewRowAnimationFade];
+}
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
