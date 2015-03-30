@@ -302,11 +302,10 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    LFTrip *trip = [self.tripsManager.allTrips objectAtIndex:indexPath.row];
     LFTripCell *tripCell = [tableView lf_dequeueCellClass:[LFTripCell class]];
     
     tripCell.layoutMargins = UIEdgeInsetsZero;
-    [tripCell updateWithTrip:trip tripsManager:self.tripsManager];
+    [tripCell updateWithTrip:self.trip tripsManager:self.tripsManager];
     
     return tripCell;
 }
