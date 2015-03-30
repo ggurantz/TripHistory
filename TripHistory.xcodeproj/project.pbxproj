@@ -148,6 +148,7 @@
 				3957CEC91AC75076008AEBE2 /* Extensions */,
 				396CCBFE1AC7D685005FBEE3 /* Models */,
 				396CCBFF1AC7D6AA005FBEE3 /* Controllers */,
+				3970C9B71AC8F9F200062F64 /* Views */,
 				3957CEA51AC74DFC008AEBE2 /* Images.xcassets */,
 				3957CE951AC74DFC008AEBE2 /* Supporting Files */,
 			);
@@ -227,20 +228,43 @@
 		396CCBFF1AC7D6AA005FBEE3 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				3957CEA21AC74DFC008AEBE2 /* Main.storyboard */,
-				396CCBE91AC7C3B6005FBEE3 /* LFTripsListViewController.h */,
-				396CCBEA1AC7C3B6005FBEE3 /* LFTripsListViewController.m */,
+				3970C9B91AC8FA1A00062F64 /* App */,
+				3970C9B81AC8FA0F00062F64 /* Trips */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		3970C9B71AC8F9F200062F64 /* Views */ = {
+			isa = PBXGroup;
+			children = (
 				3970C9AF1AC8C65C00062F64 /* LFTripCell.xib */,
 				3970C9921AC85A2400062F64 /* LFTripCell.h */,
 				3970C9931AC85A2400062F64 /* LFTripCell.m */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		3970C9B81AC8FA0F00062F64 /* Trips */ = {
+			isa = PBXGroup;
+			children = (
+				3957CEA21AC74DFC008AEBE2 /* Main.storyboard */,
+				396CCBE91AC7C3B6005FBEE3 /* LFTripsListViewController.h */,
+				396CCBEA1AC7C3B6005FBEE3 /* LFTripsListViewController.m */,
 				3970C9A11AC8A67B00062F64 /* LFTripDetailViewController.storyboard */,
 				3970C99E1AC8A27E00062F64 /* LFTripDetailViewController.h */,
 				3970C99F1AC8A27E00062F64 /* LFTripDetailViewController.m */,
+			);
+			name = Trips;
+			sourceTree = "<group>";
+		};
+		3970C9B91AC8FA1A00062F64 /* App */ = {
+			isa = PBXGroup;
+			children = (
 				3957CEA71AC74DFC008AEBE2 /* LaunchScreen.xib */,
 				3957CE991AC74DFC008AEBE2 /* AppDelegate.h */,
 				3957CE9A1AC74DFC008AEBE2 /* AppDelegate.m */,
 			);
-			name = Controllers;
+			name = App;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
