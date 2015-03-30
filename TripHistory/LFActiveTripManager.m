@@ -12,7 +12,7 @@
 
 CLLocationSpeed const kLFActiveTripManagerTripStartSpeed = 4.4704f; // 10 mph
 CLLocationSpeed const kLFActiveTripManagerMinimumActivitySpeed = 0.44704f; // 1 mph
-NSTimeInterval const kLFActiveTripManagerTripEndIdleTimeInterval = 60.0f; // 1 minute
+NSTimeInterval const kLFActiveTripManagerTripEndIdleTimeInterval = 3.0f; // 1 minute
 
 @interface LFActiveTripManager ()
 

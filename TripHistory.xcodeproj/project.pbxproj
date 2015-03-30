@@ -36,6 +36,9 @@
 		3970C9B01AC8C65C00062F64 /* LFTripCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3970C9AF1AC8C65C00062F64 /* LFTripCell.xib */; };
 		399C7DA31AC76C3A007F2EE0 /* LFActiveTripManagerTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = 399C7DA11AC76C3A007F2EE0 /* LFActiveTripManagerTestCase.m */; };
 		399C7DA41AC76C3A007F2EE0 /* LFLocationManagerTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = 399C7DA21AC76C3A007F2EE0 /* LFLocationManagerTestCase.m */; };
+		39A75D521AC8FAEE00247D54 /* LFActionCompletedView.m in Sources */ = {isa = PBXBuildFile; fileRef = 39A75D511AC8FAEE00247D54 /* LFActionCompletedView.m */; };
+		39A75D541AC8FB4A00247D54 /* LFActionCompletedView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 39A75D531AC8FB4A00247D54 /* LFActionCompletedView.xib */; };
+		39A75D5A1AC8FCA800247D54 /* NSObject+LFNibExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 39A75D591AC8FCA800247D54 /* NSObject+LFNibExtensions.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -100,6 +103,11 @@
 		3970C9AF1AC8C65C00062F64 /* LFTripCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LFTripCell.xib; sourceTree = "<group>"; };
 		399C7DA11AC76C3A007F2EE0 /* LFActiveTripManagerTestCase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LFActiveTripManagerTestCase.m; sourceTree = "<group>"; };
 		399C7DA21AC76C3A007F2EE0 /* LFLocationManagerTestCase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LFLocationManagerTestCase.m; sourceTree = "<group>"; };
+		39A75D501AC8FAEE00247D54 /* LFActionCompletedView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LFActionCompletedView.h; sourceTree = "<group>"; };
+		39A75D511AC8FAEE00247D54 /* LFActionCompletedView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LFActionCompletedView.m; sourceTree = "<group>"; };
+		39A75D531AC8FB4A00247D54 /* LFActionCompletedView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LFActionCompletedView.xib; sourceTree = "<group>"; };
+		39A75D581AC8FCA800247D54 /* NSObject+LFNibExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+LFNibExtensions.h"; sourceTree = "<group>"; };
+		39A75D591AC8FCA800247D54 /* NSObject+LFNibExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+LFNibExtensions.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -199,6 +207,8 @@
 				396CCBF91AC7CE92005FBEE3 /* NSNotification+NSError.m */,
 				3970C9A91AC8A77000062F64 /* UIViewController+LFExtensions.h */,
 				3970C9AA1AC8A77000062F64 /* UIViewController+LFExtensions.m */,
+				39A75D581AC8FCA800247D54 /* NSObject+LFNibExtensions.h */,
+				39A75D591AC8FCA800247D54 /* NSObject+LFNibExtensions.m */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -240,6 +250,9 @@
 				3970C9AF1AC8C65C00062F64 /* LFTripCell.xib */,
 				3970C9921AC85A2400062F64 /* LFTripCell.h */,
 				3970C9931AC85A2400062F64 /* LFTripCell.m */,
+				39A75D531AC8FB4A00247D54 /* LFActionCompletedView.xib */,
+				39A75D501AC8FAEE00247D54 /* LFActionCompletedView.h */,
+				39A75D511AC8FAEE00247D54 /* LFActionCompletedView.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -359,6 +372,7 @@
 				3970C9B01AC8C65C00062F64 /* LFTripCell.xib in Resources */,
 				3957CEA91AC74DFC008AEBE2 /* LaunchScreen.xib in Resources */,
 				3957CEA61AC74DFC008AEBE2 /* Images.xcassets in Resources */,
+				39A75D541AC8FB4A00247D54 /* LFActionCompletedView.xib in Resources */,
 				3970C9A21AC8A67B00062F64 /* LFTripDetailViewController.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -384,6 +398,7 @@
 				396CCBEB1AC7C3B6005FBEE3 /* LFTripsListViewController.m in Sources */,
 				396CCBF11AC7C430005FBEE3 /* UITableView+LFExtensions.m in Sources */,
 				3970C9A01AC8A27E00062F64 /* LFTripDetailViewController.m in Sources */,
+				39A75D5A1AC8FCA800247D54 /* NSObject+LFNibExtensions.m in Sources */,
 				396CCBFA1AC7CE92005FBEE3 /* NSNotification+NSError.m in Sources */,
 				3970C9AB1AC8A77000062F64 /* UIViewController+LFExtensions.m in Sources */,
 				396CCBF71AC7CD65005FBEE3 /* NSNotification+LFTrip.m in Sources */,
@@ -391,6 +406,7 @@
 				3970C9941AC85A2400062F64 /* LFTripCell.m in Sources */,
 				3970C9AE1AC8C27100062F64 /* LFTimeOfDayFormatter.m in Sources */,
 				3957CEC01AC74EA4008AEBE2 /* LFActiveTripManager.m in Sources */,
+				39A75D521AC8FAEE00247D54 /* LFActionCompletedView.m in Sources */,
 				394D740E1AC7A18100B0FFEB /* LFTripsManager.m in Sources */,
 				3957CED71AC758F7008AEBE2 /* LFTrip.m in Sources */,
 				3957CE981AC74DFC008AEBE2 /* main.m in Sources */,

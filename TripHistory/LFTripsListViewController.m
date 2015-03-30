@@ -18,6 +18,7 @@
 #import "LFTripDetailViewController.h"
 #import "UIViewController+LFExtensions.h"
 #import "LFTimeOfDayFormatter.h"
+#import "LFActionCompletedView.h"
 
 @interface LFTripsListViewController ()
 
@@ -39,6 +40,37 @@
     
     self.tripsManager = [[LFTripsManager alloc] init];
     self.notificationCenter = [NSNotificationCenter defaultCenter];
+    
+    self.tableView.layoutMargins = UIEdgeInsetsZero;
+    [self.tableView lf_registerCellClass:[LFTripCell class]];
+    self.loggingSwitch.onTintColor = [UIColor lf_lyftTitleColor];
+    self.navigationItem.titleView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"Logo"]];
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [self.tableView reloadData];
+    [self beginObservingTripsManagerChanges];
+    [self.loggingSwitch setOn:self.tripsManager.loggingEnabled];
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    
+    [self.tableView deselectRowAtIndexPath:[self.tableView indexPathForSelectedRow]
+                                  animated:true];
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    
+    [self stopObservingTripsManagerChanges];
+}
+
+- (void)beginObservingTripsManagerChanges
+{
     [self.notificationCenter addObserver:self
                                 selector:@selector(tripsManagerDidBeginNewTrip:)
                                     name:LFTripsManagerDidBeginNewTripNotification
@@ -55,25 +87,11 @@
                                 selector:@selector(tripsManagerDidFailAuthorization:)
                                     name:LFTripsManagerDidFailAuthorization
                                   object:self.tripsManager];
-    
-    self.tableView.layoutMargins = UIEdgeInsetsZero;
-    [self.tableView lf_registerCellClass:[LFTripCell class]];
-    self.loggingSwitch.onTintColor = [UIColor lf_lyftTitleColor];
-    self.navigationItem.titleView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"Logo"]];
 }
 
-- (void)viewWillAppear:(BOOL)animated
+- (void)stopObservingTripsManagerChanges
 {
-    [self.tableView reloadData];
-    [self.loggingSwitch setOn:self.tripsManager.loggingEnabled];
-}
-
-- (void)viewDidAppear:(BOOL)animated
-{
-    [super viewDidAppear:animated];
-    
-    [self.tableView deselectRowAtIndexPath:[self.tableView indexPathForSelectedRow]
-                                  animated:true];
+    [self.notificationCenter removeObserver:self];
 }
 
 #pragma mark - LFTripsManager
@@ -97,6 +115,7 @@
 - (void)tripsManagerDidCompleteTrip:(NSNotification *)notification
 {
     [self reloadCellForTrip:[notification trip]];
+    [LFActionCompletedView showAndDismissInView:self.view];
 }
 
 - (void)tripsManagerDidFailAuthorization:(NSNotification *)notification

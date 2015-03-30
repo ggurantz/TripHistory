@@ -15,6 +15,7 @@
 #import "NSNotification+LFTrip.h"
 #import "LFTripCell.h"
 #import "UITableView+LFExtensions.h"
+#import "LFActionCompletedView.h"
 
 @interface LFTripDetailViewController () <MKMapViewDelegate, UITableViewDataSource, UITableViewDelegate>
 
@@ -130,6 +131,7 @@
         
         [self createAndAddEndPointAnnotation];
         [self reloadDataAnimated:YES];
+        [LFActionCompletedView showAndDismissInView:self.view];
         
         [[NSNotificationCenter defaultCenter] removeObserver:self
                                                         name:LFTripsManagerDidCompleteTripNotification
