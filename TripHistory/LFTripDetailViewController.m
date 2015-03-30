@@ -17,7 +17,7 @@
 #import "UITableView+LFExtensions.h"
 #import "LFActionCompletedView.h"
 
-@interface LFTripDetailViewController () <MKMapViewDelegate, UITableViewDataSource, UITableViewDelegate>
+@interface LFTripDetailViewController () <MKMapViewDelegate, UITableViewDataSource, UITableViewDelegate, UIGestureRecognizerDelegate>
 
 @property (nonatomic, readwrite, strong) IBOutlet MKMapView *mapView;
 @property (nonatomic, readwrite, strong) NSNotificationCenter *notificationCenter;
@@ -27,6 +27,11 @@
 @property (nonatomic, readwrite, strong) MKPointAnnotation *carAnnotation;
 @property (nonatomic, readwrite, strong) MKPointAnnotation *endPointAnnotation;
 
+@property (nonatomic, readwrite, strong) UIPanGestureRecognizer *panGestureRecognizer;
+@property (nonatomic, readwrite, strong) NSTimer *panTimer;
+
+@property (nonatomic, readwrite, strong) IBOutlet UIView *footerView;
+@property (nonatomic, readwrite, strong) IBOutlet NSLayoutConstraint *footerViewBottomLayoutConstraint;
 @property (nonatomic, readwrite, strong) IBOutlet UITableView *tableView;
 
 @end
@@ -36,6 +41,7 @@
 - (void)dealloc
 {
     [_notificationCenter removeObserver:self];
+    [_panTimer invalidate];
 }
 
 - (void)viewDidLoad
@@ -73,6 +79,11 @@
     }
     
     [self reloadDataAnimated:NO];
+    
+    self.panGestureRecognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self
+                                                                        action:@selector(mapDidPan:)];
+    self.panGestureRecognizer.delegate = self;
+    [self.mapView addGestureRecognizer:self.panGestureRecognizer];
 }
 
 - (void)createAndAddEndPointAnnotation
@@ -219,6 +230,55 @@
         
         return pinAnnotation;
     }
+}
+
+#pragma mark - Pan Gestures
+
+- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer
+{
+    return YES;
+}
+
+- (void)mapDidPan:(UIGestureRecognizer *)gestureRecognizer
+{
+    if (self.panTimer == nil)
+    {
+        [self.view layoutIfNeeded];
+        
+        __block LFTripDetailViewController *blockSelf = self;
+        [UIView animateWithDuration:0.2f
+                         animations:^{
+                             blockSelf.footerView.alpha = 0.0f;
+                             blockSelf.footerViewBottomLayoutConstraint.constant = -10.0f;
+                             [blockSelf.view layoutIfNeeded];
+                         }];
+    }
+    else
+    {
+        [self.panTimer invalidate];
+    }
+    
+    self.panTimer = [NSTimer scheduledTimerWithTimeInterval:0.3f
+                                                     target:self
+                                                   selector:@selector(panTimerDidComplete:)
+                                                   userInfo:nil
+                                                    repeats:NO];
+}
+
+- (void)panTimerDidComplete:(NSTimer *)timer
+{
+    [self.panTimer invalidate];
+    self.panTimer = nil;
+    
+    [self.view layoutIfNeeded];
+    
+    __block LFTripDetailViewController *blockSelf = self;
+    [UIView animateWithDuration:0.2f
+                     animations:^{
+                         blockSelf.footerView.alpha = 1.0f;
+                         blockSelf.footerViewBottomLayoutConstraint.constant = 0.0f;
+                         [blockSelf.view layoutIfNeeded];
+                     }];
 }
 
 #pragma mark - UITableView

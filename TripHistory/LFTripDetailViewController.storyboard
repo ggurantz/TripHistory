@@ -62,6 +62,8 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="footerView" destination="J74-Hb-DBy" id="JS4-z5-z5g"/>
+                        <outlet property="footerViewBottomLayoutConstraint" destination="EzT-YS-Rcn" id="6QP-GL-4Cx"/>
                         <outlet property="mapView" destination="s1H-Be-ErO" id="5bb-jw-TuW"/>
                         <outlet property="tableView" destination="mT9-wE-1BE" id="67D-E6-eN3"/>
                     </connections>
