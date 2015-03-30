@@ -15,4 +15,4 @@ Download and install! Built using Xcode 6.3 beta 4, though should work with any 
 * **Robust location authorization handling** *(What? Isn't this just expected?)*
 
 ## Testing
-Unit tests built using XCTest. Employed TDD when building early models, but used it less as time ran out.
+Unit tests built using XCTest. Employed light TDD when building early models, but used it less as time ran out.
