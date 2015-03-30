@@ -16,7 +16,7 @@ typedef NS_ENUM(NSInteger, LFTripState) {
     LFTripStateCompleted
 };
 
-@interface LFTrip : NSObject
+@interface LFTrip : NSObject <NSCoding>
 
 - (instancetype)initWithLocations:(NSArray *)locations;
 

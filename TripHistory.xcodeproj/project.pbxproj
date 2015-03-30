@@ -13,7 +13,6 @@
 		394D74101AC7A30000B0FFEB /* LFTripsManagerTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = 394D740F1AC7A30000B0FFEB /* LFTripsManagerTestCase.m */; };
 		3957CE981AC74DFC008AEBE2 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3957CE971AC74DFC008AEBE2 /* main.m */; };
 		3957CE9B1AC74DFC008AEBE2 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3957CE9A1AC74DFC008AEBE2 /* AppDelegate.m */; };
-		3957CE9E1AC74DFC008AEBE2 /* TripHistory.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3957CE9C1AC74DFC008AEBE2 /* TripHistory.xcdatamodeld */; };
 		3957CEA41AC74DFC008AEBE2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3957CEA21AC74DFC008AEBE2 /* Main.storyboard */; };
 		3957CEA61AC74DFC008AEBE2 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3957CEA51AC74DFC008AEBE2 /* Images.xcassets */; };
 		3957CEA91AC74DFC008AEBE2 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3957CEA71AC74DFC008AEBE2 /* LaunchScreen.xib */; };
@@ -62,7 +61,6 @@
 		3957CE971AC74DFC008AEBE2 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		3957CE991AC74DFC008AEBE2 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		3957CE9A1AC74DFC008AEBE2 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		3957CE9D1AC74DFC008AEBE2 /* TripHistory.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TripHistory.xcdatamodel; sourceTree = "<group>"; };
 		3957CEA31AC74DFC008AEBE2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		3957CEA51AC74DFC008AEBE2 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		3957CEA81AC74DFC008AEBE2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
@@ -151,7 +149,6 @@
 				396CCBFE1AC7D685005FBEE3 /* Models */,
 				396CCBFF1AC7D6AA005FBEE3 /* Controllers */,
 				3957CEA51AC74DFC008AEBE2 /* Images.xcassets */,
-				3957CE9C1AC74DFC008AEBE2 /* TripHistory.xcdatamodeld */,
 				3957CE951AC74DFC008AEBE2 /* Supporting Files */,
 			);
 			path = TripHistory;
@@ -369,7 +366,6 @@
 				3957CED21AC752F6008AEBE2 /* NSError+LFExtensions.m in Sources */,
 				3970C9941AC85A2400062F64 /* LFTripCell.m in Sources */,
 				3970C9AE1AC8C27100062F64 /* LFTimeOfDayFormatter.m in Sources */,
-				3957CE9E1AC74DFC008AEBE2 /* TripHistory.xcdatamodeld in Sources */,
 				3957CEC01AC74EA4008AEBE2 /* LFActiveTripManager.m in Sources */,
 				394D740E1AC7A18100B0FFEB /* LFTripsManager.m in Sources */,
 				3957CED71AC758F7008AEBE2 /* LFTrip.m in Sources */,
@@ -588,19 +584,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCVersionGroup section */
-		3957CE9C1AC74DFC008AEBE2 /* TripHistory.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				3957CE9D1AC74DFC008AEBE2 /* TripHistory.xcdatamodel */,
-			);
-			currentVersion = 3957CE9D1AC74DFC008AEBE2 /* TripHistory.xcdatamodel */;
-			path = TripHistory.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-/* End XCVersionGroup section */
 	};
 	rootObject = 3957CE8A1AC74DFC008AEBE2 /* Project object */;
 }

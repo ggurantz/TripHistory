@@ -10,6 +10,10 @@
 #import "LFTimeInterval.h"
 #import <CoreLocation/CoreLocation.h>
 
+static NSString *const kLFTripLocationsKey = @"kLFTripLocationsKey";
+static NSString *const kLFTripStartLocationAddressKey = @"kLFTripStartLocationAddressKey";
+static NSString *const kLFTripEndLocationAddressKey = @"kLFTripEndLocationAddressKey";
+
 @interface LFTrip ()
 
 @property (nonatomic, readwrite, strong) NSArray *locations;
@@ -33,6 +37,27 @@
         self.locations = locations;
     }
     return self;
+}
+
+- (instancetype)initWithCoder:(NSCoder *)coder
+{
+    NSArray *locations = [coder decodeObjectForKey:kLFTripLocationsKey];
+    self = [self initWithLocations:locations];
+    
+    if (self)
+    {
+        self.startLocationAddress = [coder decodeObjectForKey:kLFTripStartLocationAddressKey];
+        self.endLocationAddress = [coder decodeObjectForKey:kLFTripEndLocationAddressKey];
+    }
+    
+    return self;
+}
+
+- (void)encodeWithCoder:(NSCoder *)aCoder
+{
+    [aCoder encodeObject:self.locations forKey:kLFTripLocationsKey];
+    [aCoder encodeObject:self.startLocationAddress forKey:kLFTripStartLocationAddressKey];
+    [aCoder encodeObject:self.endLocationAddress forKey:kLFTripEndLocationAddressKey];
 }
 
 - (LFTripState)state

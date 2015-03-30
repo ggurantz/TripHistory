@@ -17,12 +17,16 @@ NSString *const LFTripsManagerDidUpdateTripNotification = @"LFTripsManagerDidUpd
 NSString *const LFTripsManagerDidCompleteTripNotification = @"LFTripsManagerDidCompleteTripNotification";
 NSString *const LFTripsManagerDidFailAuthorization = @"LFTripsManagerDidFailAuthorization";
 
+static NSTimeInterval const kLFTripsManagerIntervalBetweenSaves = 30.0f;
+
 @interface LFTripsManager () <LFActiveTripManagerDelegate>
 
 @property (nonatomic, readwrite, strong) NSMutableArray *trips;
 @property (nonatomic, readwrite, strong) LFActiveTripManager *activeTripManager;
 @property (nonatomic, readwrite, strong) NSNotificationCenter *notificationCenter;
+@property (nonatomic, readwrite, strong) NSFileManager *fileManager;
 @property (nonatomic, readwrite, strong) CLGeocoder *geocoder;
+@property (nonatomic, readwrite, strong) NSDate *lastSavedDate;
 
 @end
 
@@ -32,9 +36,11 @@ NSString *const LFTripsManagerDidFailAuthorization = @"LFTripsManagerDidFailAuth
 {
     self = [super init];
     if (self) {
-        self.trips = [NSMutableArray array];
         self.notificationCenter = [NSNotificationCenter defaultCenter];
+        self.fileManager = [NSFileManager defaultManager];
         self.geocoder = [[CLGeocoder alloc] init];
+        
+        self.trips = [NSMutableArray arrayWithArray:[self loadTrips]];
     }
     return self;
 }
@@ -117,9 +123,43 @@ NSString *const LFTripsManagerDidFailAuthorization = @"LFTripsManagerDidFailAuth
 
 - (void)postUpdateNotificationForTrip:(LFTrip *)trip
 {
+    [self saveTripsForced:NO];
     [self.notificationCenter postNotificationName:LFTripsManagerDidUpdateTripNotification
                                            object:self
                                              trip:trip];
+}
+
+- (NSString *)tripsArchivePath
+{
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *archivePath = [paths objectAtIndex:0];
+    archivePath = [archivePath stringByAppendingPathComponent:@"trips"];
+    return archivePath;
+}
+
+- (NSArray *)loadTrips
+{
+    NSString *path = self.tripsArchivePath;
+    if ([self.fileManager fileExistsAtPath:path])
+    {
+        return [NSKeyedUnarchiver unarchiveObjectWithFile:path];
+    }
+    else
+    {
+        return nil;
+    }
+}
+
+- (void)saveTripsForced:(BOOL)forced
+{
+    NSDate *now = [NSDate date];
+    if (forced ||
+        self.lastSavedDate == nil ||
+        [now timeIntervalSinceDate:self.lastSavedDate] > kLFTripsManagerIntervalBetweenSaves)
+    {
+        [NSKeyedArchiver archiveRootObject:self.trips toFile:[self tripsArchivePath]];
+        self.lastSavedDate = now;
+    }
 }
 
 #pragma mark - LFActiveTripManagerDelegate
@@ -127,6 +167,7 @@ NSString *const LFTripsManagerDidFailAuthorization = @"LFTripsManagerDidFailAuth
 - (void)activeTripManager:(LFActiveTripManager *)tripManager didBeginNewTrip:(LFTrip *)trip
 {
     [self.trips insertObject:trip atIndex:0];
+    [self saveTripsForced:NO];
     [self.notificationCenter postNotificationName:LFTripsManagerDidBeginNewTripNotification
                                            object:self
                                              trip:trip];
@@ -139,6 +180,7 @@ NSString *const LFTripsManagerDidFailAuthorization = @"LFTripsManagerDidFailAuth
 
 - (void)activeTripManager:(LFActiveTripManager *)tripManager didCompleteTrip:(LFTrip *)trip
 {
+    [self saveTripsForced:NO];
     [self.notificationCenter postNotificationName:LFTripsManagerDidCompleteTripNotification
                                            object:self
                                              trip:trip];
