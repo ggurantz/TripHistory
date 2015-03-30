@@ -167,7 +167,7 @@ static NSTimeInterval const kLFTripsManagerIntervalBetweenSaves = 30.0f;
 - (void)activeTripManager:(LFActiveTripManager *)tripManager didBeginNewTrip:(LFTrip *)trip
 {
     [self.trips insertObject:trip atIndex:0];
-    [self saveTripsForced:NO];
+    [self saveTripsForced:YES];
     [self.notificationCenter postNotificationName:LFTripsManagerDidBeginNewTripNotification
                                            object:self
                                              trip:trip];
@@ -180,7 +180,7 @@ static NSTimeInterval const kLFTripsManagerIntervalBetweenSaves = 30.0f;
 
 - (void)activeTripManager:(LFActiveTripManager *)tripManager didCompleteTrip:(LFTrip *)trip
 {
-    [self saveTripsForced:NO];
+    [self saveTripsForced:YES];
     [self.notificationCenter postNotificationName:LFTripsManagerDidCompleteTripNotification
                                            object:self
                                              trip:trip];

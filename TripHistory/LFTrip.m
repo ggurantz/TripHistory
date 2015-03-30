@@ -60,6 +60,11 @@ static NSString *const kLFTripEndLocationAddressKey = @"kLFTripEndLocationAddres
     [aCoder encodeObject:self.endLocationAddress forKey:kLFTripEndLocationAddressKey];
 }
 
+- (Class)classForCoder
+{
+    return [LFTrip class];
+}
+
 - (LFTripState)state
 {
     return LFTripStateCompleted;
