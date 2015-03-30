@@ -2,7 +2,7 @@
 Simple app for recording trips!
 
 ## Setup
-Download and install! Built using Xcode 6.3 beta 4, though should work with any Xcode 6.x version.
+Just download and install, no need to worry about CocoaPods. Built using Xcode 6.3 beta 4 using Objective-C. It should work with any Xcode 6.x version.
 
 ## Features
 * Automatic logging of trips
