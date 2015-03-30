@@ -60,7 +60,6 @@
                     <constraint firstItem="FMV-e4-TbN" firstAttribute="top" secondItem="sI4-Oi-6cl" secondAttribute="bottom" constant="2" id="96P-iE-WZW"/>
                     <constraint firstItem="sI4-Oi-6cl" firstAttribute="leading" secondItem="Yby-qS-LL2" secondAttribute="leading" id="AcR-jC-6cb"/>
                     <constraint firstItem="Yby-qS-LL2" firstAttribute="height" secondItem="zZI-Gl-vui" secondAttribute="height" id="BNK-tx-HoX"/>
-                    <constraint firstItem="Yby-qS-LL2" firstAttribute="top" secondItem="nS0-hJ-Gqa" secondAttribute="top" constant="10" id="DjW-oo-mVt"/>
                     <constraint firstItem="Yby-qS-LL2" firstAttribute="leading" secondItem="lrd-RJ-M64" secondAttribute="trailing" constant="16" id="IC8-MN-7kx"/>
                     <constraint firstItem="wVa-yD-Jgs" firstAttribute="bottom" secondItem="zZI-Gl-vui" secondAttribute="bottom" id="Idf-Rv-H5g"/>
                     <constraint firstItem="FMV-e4-TbN" firstAttribute="leading" secondItem="Yby-qS-LL2" secondAttribute="leading" id="Lnc-WA-US6"/>
@@ -69,6 +68,7 @@
                     <constraint firstItem="wVa-yD-Jgs" firstAttribute="leading" secondItem="zZI-Gl-vui" secondAttribute="leading" id="hmH-0f-PYy"/>
                     <constraint firstItem="Yby-qS-LL2" firstAttribute="centerY" secondItem="qSr-d7-Ldc" secondAttribute="centerY" id="qnz-TR-KKt"/>
                     <constraint firstItem="sI4-Oi-6cl" firstAttribute="bottom" secondItem="Yby-qS-LL2" secondAttribute="bottom" id="sS5-3P-1Tm"/>
+                    <constraint firstItem="Yby-qS-LL2" firstAttribute="top" secondItem="lrd-RJ-M64" secondAttribute="top" constant="-7" id="tOd-OF-ArH"/>
                     <constraint firstAttribute="bottom" secondItem="lrd-RJ-M64" secondAttribute="bottom" constant="7" id="v1W-sX-G1V"/>
                     <constraint firstItem="qSr-d7-Ldc" firstAttribute="leading" secondItem="Yby-qS-LL2" secondAttribute="trailing" constant="8" id="x5h-F5-tXM"/>
                 </constraints>

@@ -23,10 +23,10 @@
                                 </connections>
                             </mapView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="J74-Hb-DBy">
-                                <rect key="frame" x="0.0" y="541" width="600" height="59"/>
+                                <rect key="frame" x="0.0" y="527" width="600" height="73"/>
                                 <subviews>
-                                    <tableView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="58" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="mT9-wE-1BE">
-                                        <rect key="frame" x="0.0" y="1" width="600" height="58"/>
+                                    <tableView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="72" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="mT9-wE-1BE">
+                                        <rect key="frame" x="0.0" y="1" width="600" height="72"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <connections>
                                             <outlet property="dataSource" destination="iLN-6o-rJz" id="a4k-Eq-PjO"/>
@@ -39,7 +39,7 @@
                                     <constraint firstItem="mT9-wE-1BE" firstAttribute="top" secondItem="J74-Hb-DBy" secondAttribute="top" constant="1" id="Een-uU-5dE"/>
                                     <constraint firstAttribute="trailing" secondItem="mT9-wE-1BE" secondAttribute="trailing" id="JFS-Jd-Lj7"/>
                                     <constraint firstItem="mT9-wE-1BE" firstAttribute="leading" secondItem="J74-Hb-DBy" secondAttribute="leading" id="LOz-TJ-yOB"/>
-                                    <constraint firstAttribute="height" constant="59" id="ZPU-YX-HGG"/>
+                                    <constraint firstAttribute="height" constant="73" id="ZPU-YX-HGG"/>
                                     <constraint firstItem="mT9-wE-1BE" firstAttribute="top" secondItem="J74-Hb-DBy" secondAttribute="top" constant="1" id="n0G-6w-kac"/>
                                     <constraint firstAttribute="bottom" secondItem="mT9-wE-1BE" secondAttribute="bottom" id="qAD-jX-kPO"/>
                                 </constraints>
