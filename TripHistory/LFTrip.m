@@ -35,6 +35,7 @@ static NSString *const kLFTripEndLocationAddressKey = @"kLFTripEndLocationAddres
     if (self)
     {
         self.locations = locations;
+        self.activityType = LFTripActivityTypeDriving;
     }
     return self;
 }

@@ -16,6 +16,12 @@ typedef NS_ENUM(NSInteger, LFTripState) {
     LFTripStateCompleted
 };
 
+typedef NS_ENUM(NSInteger, LFTripActivityType) {
+    LFTripActivityTypeDriving,
+    LFTripActivityTypeCycling,
+    LFTripActivityTypeRunning
+};
+
 @interface LFTrip : NSObject <NSCoding>
 
 - (instancetype)initWithLocations:(NSArray *)locations;
@@ -28,5 +34,6 @@ typedef NS_ENUM(NSInteger, LFTripState) {
 
 @property (nonatomic, readwrite, strong) NSString *startLocationAddress;
 @property (nonatomic, readwrite, strong) NSString *endLocationAddress;
+@property (nonatomic, readwrite, assign) LFTripActivityType activityType;
 
 @end
