@@ -27,6 +27,7 @@ static NSTimeInterval const kLFTripsManagerIntervalBetweenSaves = 30.0f;
 @property (nonatomic, readwrite, strong) NSFileManager *fileManager;
 @property (nonatomic, readwrite, strong) CLGeocoder *geocoder;
 @property (nonatomic, readwrite, strong) NSDate *lastSavedDate;
+@property (nonatomic, readwrite, strong) NSString *saveFilePathComponent;
 
 @end
 
@@ -34,8 +35,14 @@ static NSTimeInterval const kLFTripsManagerIntervalBetweenSaves = 30.0f;
 
 - (instancetype)init
 {
+    return [self initWithSaveFilePathComponent:@"trips"];
+}
+
+- (instancetype)initWithSaveFilePathComponent:(NSString *)saveFilePathComponent
+{
     self = [super init];
     if (self) {
+        self.saveFilePathComponent = saveFilePathComponent;
         self.notificationCenter = [NSNotificationCenter defaultCenter];
         self.fileManager = [NSFileManager defaultManager];
         self.geocoder = [[CLGeocoder alloc] init];
@@ -53,6 +60,7 @@ static NSTimeInterval const kLFTripsManagerIntervalBetweenSaves = 30.0f;
 - (void)removeAllTrips
 {
     [self.trips removeAllObjects];
+    [self saveTripsForced:YES];
 }
 
 - (BOOL)loggingEnabled
@@ -133,7 +141,7 @@ static NSTimeInterval const kLFTripsManagerIntervalBetweenSaves = 30.0f;
 {
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *archivePath = [paths objectAtIndex:0];
-    archivePath = [archivePath stringByAppendingPathComponent:@"trips"];
+    archivePath = [archivePath stringByAppendingPathComponent:self.saveFilePathComponent];
     return archivePath;
 }
 

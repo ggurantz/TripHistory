@@ -34,7 +34,7 @@
 
 - (LFTripsManager *)createTestTripsManager
 {
-    return [[LFTripsManager alloc] init];
+    return [[LFTripsManager alloc] initWithSaveFilePathComponent:@"test-path-file"];
 }
 
 - (void)createATrip
@@ -48,7 +48,6 @@
 - (void)testThatItCreatesATrip
 {
     XCTAssertEqual(self.tripsManager.allTrips.count, 0);
-    
     self.tripsManager.loggingEnabled = YES;
     [self createATrip];
     
@@ -58,7 +57,7 @@
 - (void)testThatItSerializesObjects
 {
     XCTAssertEqual(self.tripsManager.allTrips.count, 0);
-    
+    self.tripsManager.loggingEnabled = YES;
     [self createATrip];
     
     LFTripsManager *tripsManager = [self createTestTripsManager];

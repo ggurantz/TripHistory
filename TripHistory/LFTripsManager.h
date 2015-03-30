@@ -24,6 +24,8 @@ extern NSString *const LFTripsManagerDidFailAuthorization;
 
 @interface LFTripsManager : NSObject
 
+- (instancetype)init;
+- (instancetype)initWithSaveFilePathComponent:(NSString *)saveFilePathComponent;
 @property (readonly) NSArray *allTrips;
 - (void)removeAllTrips;
 
